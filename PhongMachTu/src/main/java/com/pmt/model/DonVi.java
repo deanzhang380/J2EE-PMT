@@ -10,6 +10,9 @@ public class DonVi {
 		this.maDonVi = maDonVi;
 		this.tenDonVi = tenDonVi;
 	}
+	public DonVi() {
+		// TODO Auto-generated constructor stub
+	}
 	public String getTenDonVi() {
 		return tenDonVi;
 	}

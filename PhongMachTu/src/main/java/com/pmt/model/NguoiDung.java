@@ -6,6 +6,7 @@ public class NguoiDung {
 	private String user;
 	private String pass;
 	private String Hoten;
+	private VaiTro vaiTro = new VaiTro();
 	
 	public NguoiDung(String maNguoiDung, String user, String pass, String hoten) {
 		super();
@@ -13,6 +14,9 @@ public class NguoiDung {
 		this.user = user;
 		this.pass = pass;
 		Hoten = hoten;
+	}
+	public NguoiDung() {
+		// TODO Auto-generated constructor stub
 	}
 	public String getUser() {
 		return user;
@@ -39,5 +43,11 @@ public class NguoiDung {
 	}
 	public void setMaNguoiDung(String maNguoiDung) {
 		this.maNguoiDung = maNguoiDung;
+	}
+	public VaiTro getVaiTro() {
+		return vaiTro;
+	}
+	public void setVaiTro(VaiTro vaiTro) {
+		this.vaiTro = vaiTro;
 	}
 }

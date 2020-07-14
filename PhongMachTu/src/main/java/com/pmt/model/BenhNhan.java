@@ -14,6 +14,9 @@ public class BenhNhan {
 		this.gioiTinh = gioiTinh;
 		this.diaChi = diaChi;
 	}
+	public BenhNhan() {
+		// TODO Auto-generated constructor stub
+	}
 	public String getHoten() {
 		return Hoten;
 	}

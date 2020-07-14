@@ -2,25 +2,23 @@ package com.pmt.model;
 
 public class ChiTietDanhSachKham {
 
-	private String maBenhNhan;
-	private String maDanhSachKham;
+	private BenhNhan benhNhan = new BenhNhan();
+	private DanhSachKham dsKham = new DanhSachKham();
 	
-	public ChiTietDanhSachKham(String maBenhNhan, String maDanhSachKham) {
+	public ChiTietDanhSachKham() {
 		super();
-		this.maBenhNhan = maBenhNhan;
-		this.maDanhSachKham = maDanhSachKham;
+		// TODO Auto-generated constructor stub
 	}
-	public String getMaBenhNhan() {
-		return maBenhNhan;
+	public BenhNhan getBenhNhan() {
+		return benhNhan;
 	}
-	public void setMaBenhNhan(String maBenhNhan) {
-		this.maBenhNhan = maBenhNhan;
+	public void setBenhNhan(BenhNhan benhNhan) {
+		this.benhNhan = benhNhan;
 	}
-	public String getMaDanhSachKham() {
-		return maDanhSachKham;
+	public DanhSachKham getDsKham() {
+		return dsKham;
 	}
-	public void setMaDanhSachKham(String maDanhSachKham) {
-		this.maDanhSachKham = maDanhSachKham;
-	}
-	
+	public void setDsKham(DanhSachKham dsKham) {
+		this.dsKham = dsKham;
+	}	
 }

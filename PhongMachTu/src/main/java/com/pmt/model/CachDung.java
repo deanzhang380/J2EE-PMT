@@ -11,6 +11,10 @@ public class CachDung {
 		this.cachDung = cachDung;
 	}
 	
+	public CachDung() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getCachDung() {
 		return cachDung;
 	}

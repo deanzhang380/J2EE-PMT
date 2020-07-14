@@ -12,9 +12,9 @@ public class DBConnection {
 	static private String db_pasString = "admin";
 	static private String db_driverString = "org.mysql.jbdc.Driver";
 	
-	public static Connection getConnection () {
-		
-		Connection con = null;
+	static private Connection con = null;
+	
+	public static Connection getConnection () {	
 		
 		try {
 			Class.forName(db_driverString);
@@ -28,5 +28,16 @@ public class DBConnection {
 			
 			return null;
 		}
+	}
+	
+	public void disconnect() {
+	    if (con != null) {
+	        try {
+	            con.close();
+	            con = null;
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	    }
 	}
 }

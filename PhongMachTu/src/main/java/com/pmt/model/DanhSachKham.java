@@ -1,7 +1,5 @@
 package com.pmt.model;
 
-import java.sql.Date;
-
 public class DanhSachKham {
 	private String maDanhSachKham;
 	private String ngayKham;
@@ -10,6 +8,9 @@ public class DanhSachKham {
 		super();
 		this.maDanhSachKham = maDanhSachKham;
 		this.ngayKham = ngayKham;
+	}
+	public DanhSachKham() {
+		// TODO Auto-generated constructor stub
 	}
 	public String getNgayKham() {
 		return ngayKham;

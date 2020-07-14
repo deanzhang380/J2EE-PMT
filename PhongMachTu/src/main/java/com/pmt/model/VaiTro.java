@@ -9,6 +9,9 @@ public class VaiTro {
 		this.id = id;
 		this.tenVaiTro = tenVaiTro;
 	}
+	public VaiTro() {
+		super();
+	}
 	public String getId() {
 		return id;
 	}

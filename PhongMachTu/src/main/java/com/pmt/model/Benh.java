@@ -12,6 +12,10 @@ public class Benh {
 		this.tenBenh = tenBenh;
 	}
 	
+	public Benh() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getTenBenh() {
 		return tenBenh;
 	}

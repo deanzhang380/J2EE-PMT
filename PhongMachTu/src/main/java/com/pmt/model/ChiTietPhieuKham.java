@@ -1,57 +1,61 @@
 package com.pmt.model;
 
 public class ChiTietPhieuKham {
-	private String maPhieuKham;
-	private String maThuocString;
-	private String maDonVi0;
-	private String maCachDung;
+	private PhieuKham phieuKham = new PhieuKham();
+	private Thuoc thuoc = new Thuoc();
+	private CachDung cachDung = new CachDung();
+	private DonVi donVi = new DonVi();
 	private int soLuong;
 	private int ThanhTien;
 	
-	public ChiTietPhieuKham(String maPhieuKham, String maThuocString, String maDonVi0, String maCachDung, int soLuong,
-			int thanhTien) {
-		super();
-		this.maPhieuKham = maPhieuKham;
-		this.maThuocString = maThuocString;
-		this.maDonVi0 = maDonVi0;
-		this.maCachDung = maCachDung;
-		this.soLuong = soLuong;
-		ThanhTien = thanhTien;
+	public ChiTietPhieuKham() {
+		// TODO Auto-generated constructor stub
 	}
-	
-	public String getMaPhieuKham() {
-		return maPhieuKham;
+
+	public PhieuKham getPhieuKham() {
+		return phieuKham;
 	}
-	public void setMaPhieuKham(String maPhieuKham) {
-		this.maPhieuKham = maPhieuKham;
+
+	public void setPhieuKham(PhieuKham phieuKham) {
+		this.phieuKham = phieuKham;
 	}
-	public String getMaThuocString() {
-		return maThuocString;
+
+	public Thuoc getThuoc() {
+		return thuoc;
 	}
-	public void setMaThuocString(String maThuocString) {
-		this.maThuocString = maThuocString;
+
+	public void setThuoc(Thuoc thuoc) {
+		this.thuoc = thuoc;
 	}
-	public String getMaDonVi0() {
-		return maDonVi0;
+
+	public CachDung getCachDung() {
+		return cachDung;
 	}
-	public void setMaDonVi0(String maDonVi0) {
-		this.maDonVi0 = maDonVi0;
+
+	public void setCachDung(CachDung cachDung) {
+		this.cachDung = cachDung;
 	}
-	public String getMaCachDung() {
-		return maCachDung;
+
+	public DonVi getDonVi() {
+		return donVi;
 	}
-	public void setMaCachDung(String maCachDung) {
-		this.maCachDung = maCachDung;
+
+	public void setDonVi(DonVi donVi) {
+		this.donVi = donVi;
 	}
+
 	public int getSoLuong() {
 		return soLuong;
 	}
+
 	public void setSoLuong(int soLuong) {
 		this.soLuong = soLuong;
 	}
+
 	public int getThanhTien() {
 		return ThanhTien;
 	}
+
 	public void setThanhTien(int thanhTien) {
 		ThanhTien = thanhTien;
 	}

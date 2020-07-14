@@ -9,22 +9,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = {"/home/", "/login/"})
+@WebServlet(urlPatterns = {"/home", "/login"})
 public class LoginController extends HttpServlet {
 
 	private static final long serialVersionUID = -4201206888409251556L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		RequestDispatcher rd = req.getRequestDispatcher("/views/login.jsp");
-		rd.forward(req, resp);
-		//super.doGet(req, resp);
+
+		req.getRequestDispatcher("/views/login.jsp").forward(req, resp);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		super.doPost(req, resp);
+		
+		
+		
 	}
 }

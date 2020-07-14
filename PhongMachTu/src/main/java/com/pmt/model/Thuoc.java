@@ -13,6 +13,10 @@ public class Thuoc {
 		this.giaThuoc = giaThuoc;
 	}
 	
+	public Thuoc() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getId() {
 		return id;
 	}
