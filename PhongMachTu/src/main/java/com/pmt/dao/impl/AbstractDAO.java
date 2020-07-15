@@ -27,6 +27,7 @@ public class AbstractDAO<T> implements IDao<T> {
 			statement = connection.prepareStatement(sql);
 			setParameters(statement, parameters);
 			resultSet = statement.executeQuery();
+			//resultSet = statement.getResultSet();
 
 			while (resultSet.next()) {
 				results.add(mapper.mapRow(resultSet));

@@ -3,6 +3,7 @@ package com.pmt.service.impl;
 import javax.inject.Inject;
 
 import com.pmt.dao.IUserDao;
+import com.pmt.model.NguoiDung;
 import com.pmt.service.IUserService;
 
 public class UserService  implements IUserService{
@@ -11,9 +12,9 @@ public class UserService  implements IUserService{
 	private IUserDao userDao;
 	
 	@Override
-	public Boolean checkUser(String usernameString, String passwordString) {	
+	public NguoiDung checkUser(String usernameString, String passwordString) {	
 		
-		return null;
+		return userDao.findUserByNameAndPass(usernameString, passwordString);
 	}
 
 }

@@ -5,24 +5,26 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnection {
-
-	static private String db_URLString = "jdbc:mysql://host1:3306/";
-	static private String db_dbName = "phongmachtu";
-	static private String db_NameString = "root";
-	static private String db_pasString = "admin";
-	static private String db_driverString = "org.mysql.jbdc.Driver";
 	
 	static private Connection con = null;
 	
 	public static Connection getConnection () {	
 		
 		try {
-			Class.forName(db_driverString);
+			String db_URLString = "jdbc:mysql://localhost:3306/";
+			String db_dbName = "phongmachtu";
+			String db_NameString = "root";
+			String db_pasString = "admin";
+			String db_driverString = "com.mysql.jbdc.Driver";
+			
+			
+			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+			
 			con = DriverManager.getConnection(db_URLString + db_dbName, db_NameString, db_pasString);
 			
 			return con;
 			
-		} catch (SQLException | ClassNotFoundException e) {
+		} catch (Exception e) { //SQLException | ClassNotFoundException
 			
 			System.out.println("Cant get connection to the database.");
 			

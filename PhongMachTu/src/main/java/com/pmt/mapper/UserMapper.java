@@ -15,7 +15,7 @@ public class UserMapper implements IMapper<NguoiDung> {
 			nd.setHoten(rs.getString("HoTen"));
 			nd.setMaNguoiDung(rs.getString("MaNguoiDung"));
 			nd.setPass(rs.getString("MatKhau"));
-			nd.setUser(rs.getString("TenDangNhap"));
+			nd.setUser(rs.getString("TenDanNhap"));
 
 			try {
 				VaiTro vaiTro = new VaiTro();

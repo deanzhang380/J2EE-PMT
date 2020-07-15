@@ -45,10 +45,10 @@
                   </div>
                   
                   
-                  <form action="/login" class="user" method="POST">
+                  <form action="<c:url value='/login'/>" class="user" method="POST">
                   
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" name="username" placeholder="Username">
+                      <input type="text" class="form-control form-control-user" name="username" placeholder="Username">
                     </div>
                     <div class="form-group">
                       <input type="password" class="form-control form-control-user" name="password" placeholder="Password">

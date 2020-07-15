@@ -1,5 +1,7 @@
 package com.pmt.service;
 
+import com.pmt.model.NguoiDung;
+
 public interface IUserService {
-	Boolean checkUser(String usernameString, String passwordString);
+	NguoiDung checkUser(String usernameString, String passwordString);
 }
