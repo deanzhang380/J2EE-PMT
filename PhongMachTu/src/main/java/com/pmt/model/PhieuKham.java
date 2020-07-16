@@ -6,8 +6,10 @@ public class PhieuKham {
 	private BenhNhan benhNhan = new BenhNhan();
 	private Benh benh = new Benh();
 	private NguoiDung nguoiDung = new NguoiDung();
+	
+	private String maPhieuKham;
 	private String trieuChung;
-	private String ghiChu0;
+	private String ghiChu;
 	private int tongTien;
 	private boolean thanhToan;
 	
@@ -55,12 +57,12 @@ public class PhieuKham {
 		this.trieuChung = trieuChung;
 	}
 
-	public String getGhiChu0() {
-		return ghiChu0;
+	public String getGhiChu() {
+		return ghiChu;
 	}
 
-	public void setGhiChu0(String ghiChu0) {
-		this.ghiChu0 = ghiChu0;
+	public void setGhiChu(String ghiChu0) {
+		this.ghiChu = ghiChu0;
 	}
 
 	public int getTongTien() {
@@ -77,6 +79,14 @@ public class PhieuKham {
 
 	public void setThanhToan(boolean thanhToan) {
 		this.thanhToan = thanhToan;
+	}
+
+	public String getMaPhieuKham() {
+		return maPhieuKham;
+	}
+
+	public void setMaPhieuKham(String maPhieuKham) {
+		this.maPhieuKham = maPhieuKham;
 	}
 
 }

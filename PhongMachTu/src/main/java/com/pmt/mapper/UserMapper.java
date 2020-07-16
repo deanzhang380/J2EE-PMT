@@ -20,10 +20,11 @@ public class UserMapper implements IMapper<NguoiDung> {
 			try {
 				VaiTro vaiTro = new VaiTro();
 				vaiTro.setId(rs.getString("MaVaiTro"));
-				vaiTro.setId(rs.getString("TenVaiTro"));
+				vaiTro.setTenVaiTro(rs.getString("TenVaiTro"));
 				nd.setVaiTro(vaiTro);
 			} catch (Exception e) {
 				System.out.print(e.getMessage());
+				nd.setVaiTro(null);
 			}
 
 			return nd;

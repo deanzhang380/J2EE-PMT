@@ -1,5 +1,7 @@
 package com.pmt.model;
 
+import org.omg.CORBA.PUBLIC_MEMBER;
+
 public class ThamSo {
 	private String id;
 	private String tenThamSo;
@@ -10,6 +12,9 @@ public class ThamSo {
 		this.id = id;
 		this.tenThamSo = tenThamSo;
 		this.thamSo = thamSo;
+	}
+	
+	public ThamSo() {
 	}
 	
 	public String getId() {

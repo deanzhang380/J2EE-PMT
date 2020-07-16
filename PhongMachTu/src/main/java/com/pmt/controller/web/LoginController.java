@@ -38,8 +38,14 @@ public class LoginController extends HttpServlet {
 		
 		NguoiDung user = userService.checkUser(username, password);
 		
-		if (user != null & user.getVaiTro().getTenVaiTro().equalsIgnoreCase("admin") ) {
+		if (user != null && user.getVaiTro().getTenVaiTro().equalsIgnoreCase("admin") ) {
 			resp.sendRedirect(req.getContextPath()+"/admin-home");
+		} else if (user != null && user.getVaiTro().getTenVaiTro().equalsIgnoreCase("Tiếp Tân") ) {
+			resp.sendRedirect(req.getContextPath()+"/reception");
+		} else if (user != null && user.getVaiTro().getTenVaiTro().equalsIgnoreCase("Bác Sĩ") ) {
+			resp.sendRedirect(req.getContextPath()+"/Doctor");
+		} else if (user != null && user.getVaiTro().getTenVaiTro().equalsIgnoreCase("Thu Ngân") ) {
+			resp.sendRedirect(req.getContextPath()+"/Pharmacies");
 		} else {
 			resp.sendRedirect(req.getContextPath()+"/login");
 		}
