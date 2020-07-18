@@ -14,7 +14,7 @@ public class DBConnection {
 			String db_URLString = "jdbc:mysql://localhost:3306/";
 			String db_dbName = "phongmachtu";
 			String db_NameString = "root";
-			String db_pasString = "admin";
+			String db_pasString = "truong1997";
 			String db_driverString = "com.mysql.jbdc.Driver";
 			
 			
