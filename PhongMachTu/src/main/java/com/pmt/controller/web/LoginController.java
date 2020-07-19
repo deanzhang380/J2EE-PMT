@@ -40,11 +40,11 @@ public class LoginController extends HttpServlet {
 		
 		if (user != null && user.getVaiTro().getTenVaiTro().equalsIgnoreCase("admin") ) {
 			resp.sendRedirect(req.getContextPath()+"/admin-home");
-		} else if (user != null && user.getVaiTro().getTenVaiTro().equalsIgnoreCase("Tiếp Tân") ) {
+		} else if (user != null && user.getVaiTro().getId().equalsIgnoreCase("VT2") ) {
 			resp.sendRedirect(req.getContextPath()+"/reception");
-		} else if (user != null && user.getVaiTro().getTenVaiTro().equalsIgnoreCase("Bác Sĩ") ) {
+		} else if (user != null && user.getVaiTro().getId().equalsIgnoreCase("VT3") ) {
 			resp.sendRedirect(req.getContextPath()+"/Doctor");
-		} else if (user != null && user.getVaiTro().getTenVaiTro().equalsIgnoreCase("Thu Ngân") ) {
+		} else if (user != null && user.getVaiTro().getId().equalsIgnoreCase("VT4") ) {
 			resp.sendRedirect(req.getContextPath()+"/Pharmacies");
 		} else {
 			resp.sendRedirect(req.getContextPath()+"/login");
