@@ -7,7 +7,7 @@ public class PhieuKham {
 	private Benh benh = new Benh();
 	private NguoiDung nguoiDung = new NguoiDung();
 	
-	private String maPhieuKham;
+	private int maPhieuKham;
 	private String trieuChung;
 	private String ghiChu;
 	private int tongTien;
@@ -81,11 +81,11 @@ public class PhieuKham {
 		this.thanhToan = thanhToan;
 	}
 
-	public String getMaPhieuKham() {
+	public int getMaPhieuKham() {
 		return maPhieuKham;
 	}
 
-	public void setMaPhieuKham(String maPhieuKham) {
+	public void setMaPhieuKham(int maPhieuKham) {
 		this.maPhieuKham = maPhieuKham;
 	}
 

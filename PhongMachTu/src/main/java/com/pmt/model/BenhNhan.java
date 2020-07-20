@@ -2,12 +2,12 @@ package com.pmt.model;
 
 public class BenhNhan {
 
-	private String maBenhNhan;
+	private int maBenhNhan;
 	private String Hoten;
 	private String gioiTinh;
 	private String diaChi;
 	
-	public BenhNhan(String maBenhNhan, String hoten, String gioiTinh, String diaChi) {
+	public BenhNhan(int maBenhNhan, String hoten, String gioiTinh, String diaChi) {
 		super();
 		this.maBenhNhan = maBenhNhan;
 		Hoten = hoten;
@@ -37,10 +37,10 @@ public class BenhNhan {
 	public void setDiaChi(String diaChi) {
 		this.diaChi = diaChi;
 	}
-	public String getMaBenhNhan() {
+	public int getMaBenhNhan() {
 		return maBenhNhan;
 	}
-	public void setMaBenhNhan(String maBenhNhan) {
+	public void setMaBenhNhan(int maBenhNhan) {
 		this.maBenhNhan = maBenhNhan;
 	}
 	

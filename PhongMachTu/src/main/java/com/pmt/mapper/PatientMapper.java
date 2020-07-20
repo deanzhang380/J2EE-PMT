@@ -11,7 +11,7 @@ public class PatientMapper implements IMapper<BenhNhan>{
 		try {
 			BenhNhan benhNhan = new BenhNhan();
 			
-			benhNhan.setMaBenhNhan(rs.getString("MaBenhNhan"));
+			benhNhan.setMaBenhNhan(rs.getInt("MaBenhNhan"));
 			benhNhan.setHoten(rs.getString("HoTen"));
 			benhNhan.setGioiTinh(rs.getString("GioiTinh"));
 			benhNhan.setDiaChi(rs.getString("DiaChi"));

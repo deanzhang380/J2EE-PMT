@@ -11,7 +11,7 @@ public class ParemetersMapper implements IMapper<ThamSo>{
 		try {
 			ThamSo thamSo = new ThamSo();
 			
-			thamSo.setId(rs.getString("MaThamSo"));
+			thamSo.setId(rs.getInt("MaThamSo"));
 			thamSo.setTenThamSo(rs.getString("TenThamSo"));
 			thamSo.setThamSo(rs.getInt("ThamSo"));
 			

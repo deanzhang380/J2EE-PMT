@@ -12,7 +12,7 @@ public class UnitMapper implements IMapper<DonVi>{
 			
 			DonVi donVi = new DonVi();
 			
-			donVi.setMaDonVi(rs.getString("MaDonVi"));
+			donVi.setMaDonVi(rs.getInt("MaDonVi"));
 			donVi.setTenDonVi(rs.getString("TenDonVi"));
 			
 			return donVi;

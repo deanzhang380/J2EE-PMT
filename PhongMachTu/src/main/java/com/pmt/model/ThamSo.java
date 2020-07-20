@@ -3,11 +3,11 @@ package com.pmt.model;
 import org.omg.CORBA.PUBLIC_MEMBER;
 
 public class ThamSo {
-	private String id;
+	private int id;
 	private String tenThamSo;
 	private int thamSo;
 	
-	public ThamSo(String id, String tenThamSo, int thamSo) {
+	public ThamSo(int id, String tenThamSo, int thamSo) {
 		super();
 		this.id = id;
 		this.tenThamSo = tenThamSo;
@@ -17,10 +17,10 @@ public class ThamSo {
 	public ThamSo() {
 	}
 	
-	public String getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getTenThamSo() {

@@ -11,7 +11,7 @@ public class UsageMapper implements IMapper<CachDung>{
 		try {
 			CachDung cachDung = new CachDung();
 			
-			cachDung.setMaCachDung(rs.getString("MaCachDung"));
+			cachDung.setMaCachDung(rs.getInt("MaCachDung"));
 			cachDung.setCachDung(rs.getString("CachDung"));
 			
 			return cachDung;

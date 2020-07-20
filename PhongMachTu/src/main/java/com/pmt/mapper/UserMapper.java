@@ -13,18 +13,19 @@ public class UserMapper implements IMapper<NguoiDung> {
 		try {
 			NguoiDung nd = new NguoiDung();
 			nd.setHoten(rs.getString("HoTen"));
-			nd.setMaNguoiDung(rs.getString("MaNguoiDung"));
+			nd.setMaNguoiDung(rs.getInt("MaNguoiDung"));
 			nd.setPass(rs.getString("MatKhau"));
-			nd.setUser(rs.getString("TenDanNhap"));
+			nd.setUser(rs.getString("TenDangNhap"));
 
 			try {
 				VaiTro vaiTro = new VaiTro();
-				vaiTro.setId(rs.getString("MaVaiTro"));
+				vaiTro.setId(rs.getInt("MaVaiTro"));
 				vaiTro.setTenVaiTro(rs.getString("TenVaiTro"));
 				nd.setVaiTro(vaiTro);
 			} catch (Exception e) {
-				System.out.print(e.getMessage());
-				nd.setVaiTro(null);
+				VaiTro vaiTro = new VaiTro();
+				vaiTro.setId(rs.getInt("MaVaiTro"));
+				nd.setVaiTro(vaiTro);
 			}
 
 			return nd;

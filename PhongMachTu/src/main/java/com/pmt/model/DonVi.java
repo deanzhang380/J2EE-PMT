@@ -2,10 +2,10 @@ package com.pmt.model;
 
 public class DonVi {
 
-	private String maDonVi;
+	private int maDonVi;
 	private String tenDonVi;
 	
-	public DonVi(String maDonVi, String tenDonVi) {
+	public DonVi(int maDonVi, String tenDonVi) {
 		super();
 		this.maDonVi = maDonVi;
 		this.tenDonVi = tenDonVi;
@@ -19,10 +19,10 @@ public class DonVi {
 	public void setTenDonVi(String tenDonVi) {
 		this.tenDonVi = tenDonVi;
 	}
-	public String getMaDonVi() {
+	public int getMaDonVi() {
 		return maDonVi;
 	}
-	public void setMaDonVi(String maDonVi) {
+	public void setMaDonVi(int maDonVi) {
 		this.maDonVi = maDonVi;
 	}
 	

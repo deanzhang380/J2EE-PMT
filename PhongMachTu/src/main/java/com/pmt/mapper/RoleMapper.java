@@ -11,7 +11,7 @@ public class RoleMapper implements IMapper<VaiTro>{
 		try {
 			VaiTro vaiTro = new VaiTro();
 			
-			vaiTro.setId(rs.getString("MaVaiTro"));
+			vaiTro.setId(rs.getInt("MaVaiTro"));
 			vaiTro.setTenVaiTro(rs.getString("TenVaiTro"));
 			
 			return vaiTro;

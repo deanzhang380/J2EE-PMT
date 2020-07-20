@@ -2,10 +2,10 @@ package com.pmt.model;
 
 public class CachDung {
 
-	private String maCachDung;
+	private int maCachDung;
 	private String cachDung;
 	
-	public CachDung(String maCachDung, String cachDung) {
+	public CachDung(int maCachDung, String cachDung) {
 		super();
 		this.maCachDung = maCachDung;
 		this.cachDung = cachDung;
@@ -21,10 +21,10 @@ public class CachDung {
 	public void setCachDung(String cachDung) {
 		this.cachDung = cachDung;
 	}
-	public String getMaCachDung() {
+	public int getMaCachDung() {
 		return maCachDung;
 	}
-	public void setMaCachDung(String maCachDung) {
+	public void setMaCachDung(int maCachDung) {
 		this.maCachDung = maCachDung;
 	}
 }

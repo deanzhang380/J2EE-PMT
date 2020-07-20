@@ -2,11 +2,11 @@ package com.pmt.model;
 
 public class Thuoc {
 
-	private String id;
+	private int id;
 	private String tenThuoc;
 	private int giaThuoc;
 	
-	public Thuoc(String id, String tenThuoc, int giaThuoc) {
+	public Thuoc(int id, String tenThuoc, int giaThuoc) {
 		super();
 		this.id = id;
 		this.tenThuoc = tenThuoc;
@@ -17,10 +17,10 @@ public class Thuoc {
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getTenThuoc() {
