@@ -107,15 +107,16 @@ public class AbstractDAO<T> implements IDao<T> {
 			statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			
 			setParameters(statement, parameters);
-			resultSet = statement.getGeneratedKeys();
-
-			while (resultSet.next()) {
-				idString = resultSet.getString(1);
-			}
+			int idint = statement.executeUpdate();
+//			resultSet = statement.getGeneratedKeys();
+//
+//			while (resultSet.next()) {
+//				idString = resultSet.getString(1);
+//			}
 			
 			connection.commit();
 			
-			return idString;
+			return "Insert success";
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -135,8 +136,7 @@ public class AbstractDAO<T> implements IDao<T> {
 				e2.printStackTrace();
 			}
 		}
-
-		return null;
+		return "Insert Error";
 	}
 
 	@Override
