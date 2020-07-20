@@ -11,7 +11,7 @@ public class DiseaseMapper implements IMapper<Benh>{
 		try {
 			Benh benh = new Benh();
 			
-			benh.setMaBenh(rs.getString("MaBenh"));
+			benh.setMaBenh(rs.getInt("MaBenh"));
 			benh.setTenBenh(rs.getString("TenBenh"));
 			
 			return benh;

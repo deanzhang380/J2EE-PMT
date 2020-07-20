@@ -13,7 +13,7 @@ public class UserDao extends AbstractDAO<NguoiDung> implements IUserDao {
 		
 		StringBuilder sql = new StringBuilder("SELECT *");
 		sql.append(" FROM nguoidung as u join vaitro as v on u.MaVaiTro = v.MaVaiTro");
-		sql.append(" WHERE TenDanNhap = ? AND MatKhau = ?");
+		sql.append(" WHERE TenDangNhap = ? AND MatKhau = ?");
 		
 		//String sqlString = "SELECT * FROM nguoidung";
 		

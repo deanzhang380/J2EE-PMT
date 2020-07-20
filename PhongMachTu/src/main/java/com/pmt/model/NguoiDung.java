@@ -2,13 +2,13 @@ package com.pmt.model;
 
 public class NguoiDung {
 
-	private String maNguoiDung;
+	private int maNguoiDung;
 	private String user;
 	private String pass;
 	private String Hoten;
 	private VaiTro vaiTro = new VaiTro();
 	
-	public NguoiDung(String maNguoiDung, String user, String pass, String hoten) {
+	public NguoiDung(int maNguoiDung, String user, String pass, String hoten) {
 		super();
 		this.maNguoiDung = maNguoiDung;
 		this.user = user;
@@ -38,10 +38,10 @@ public class NguoiDung {
 	public void setHoten(String hoten) {
 		Hoten = hoten;
 	}
-	public String getMaNguoiDung() {
+	public int getMaNguoiDung() {
 		return maNguoiDung;
 	}
-	public void setMaNguoiDung(String maNguoiDung) {
+	public void setMaNguoiDung(int maNguoiDung) {
 		this.maNguoiDung = maNguoiDung;
 	}
 	public VaiTro getVaiTro() {

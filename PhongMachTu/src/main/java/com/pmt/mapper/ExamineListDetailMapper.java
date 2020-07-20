@@ -16,7 +16,7 @@ public class ExamineListDetailMapper implements IMapper<ChiTietDanhSachKham>{
 			try {
 				DanhSachKham dSachKham = new DanhSachKham();
 				
-				dSachKham.setMaDanhSachKham(rs.getString("MaDanhSachKham"));
+				dSachKham.setMaDanhSachKham(rs.getInt("MaDanhSachKham"));
 				dSachKham.setNgayKham(rs.getNString("NgayKham"));
 				
 				ct.setDsKham(dSachKham);
@@ -28,7 +28,7 @@ public class ExamineListDetailMapper implements IMapper<ChiTietDanhSachKham>{
 			try {
 				BenhNhan benhNhan = new BenhNhan();
 				
-				benhNhan.setMaBenhNhan(rs.getString("MaBenhNhan"));
+				benhNhan.setMaBenhNhan(rs.getInt("MaBenhNhan"));
 				benhNhan.setHoten(rs.getString("HoTen"));
 				benhNhan.setGioiTinh(rs.getString("GioiTinh"));
 				benhNhan.setDiaChi(rs.getString("DiaChi"));

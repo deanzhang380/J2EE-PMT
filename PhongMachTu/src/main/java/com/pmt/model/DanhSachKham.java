@@ -1,10 +1,10 @@
 package com.pmt.model;
 
 public class DanhSachKham {
-	private String maDanhSachKham;
+	private int maDanhSachKham;
 	private String ngayKham;
 	
-	public DanhSachKham(String maDanhSachKham, String ngayKham) {
+	public DanhSachKham(int maDanhSachKham, String ngayKham) {
 		super();
 		this.maDanhSachKham = maDanhSachKham;
 		this.ngayKham = ngayKham;
@@ -18,10 +18,10 @@ public class DanhSachKham {
 	public void setNgayKham(String ngayKham) {
 		this.ngayKham = ngayKham;
 	}
-	public String getMaDanhSachKham() {
+	public int getMaDanhSachKham() {
 		return maDanhSachKham;
 	}
-	public void setMaDanhSachKham(String maDanhSachKham) {
+	public void setMaDanhSachKham(int maDanhSachKham) {
 		this.maDanhSachKham = maDanhSachKham;
 	}
 }

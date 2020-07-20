@@ -13,7 +13,7 @@ public class MedicineMapper implements IMapper<Thuoc>{
 			
 			Thuoc thuoc = new Thuoc();
 			
-			thuoc.setId(rs.getString("MaThuoc"));
+			thuoc.setId(rs.getInt("MaThuoc"));
 			thuoc.setTenThuoc(rs.getString("TenThuoc"));
 			thuoc.setGiaThuoc(rs.getInt("GiaThuoc"));
 			

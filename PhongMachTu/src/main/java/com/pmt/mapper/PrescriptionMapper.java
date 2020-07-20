@@ -16,7 +16,7 @@ public class PrescriptionMapper implements IMapper<PhieuKham> {
 		try {
 			PhieuKham pkKham = new PhieuKham();
 
-			pkKham.setMaPhieuKham(rs.getString("MaPhieuKham"));
+			pkKham.setMaPhieuKham(rs.getInt("MaPhieuKham"));
 			pkKham.setGhiChu(rs.getString("GhiChu"));
 			pkKham.setTongTien(rs.getInt("TongTien"));
 			pkKham.setTrieuChung(rs.getString("TrieuChung"));
@@ -26,7 +26,7 @@ public class PrescriptionMapper implements IMapper<PhieuKham> {
 			try {
 				Benh benh = new Benh();
 
-				benh.setMaBenh(rs.getString("MaBenh"));
+				benh.setMaBenh(rs.getInt("MaBenh"));
 				benh.setTenBenh(rs.getString("TenBenh"));
 
 				pkKham.setBenh(benh);
@@ -39,7 +39,7 @@ public class PrescriptionMapper implements IMapper<PhieuKham> {
 			try {
 				BenhNhan benhNhan = new BenhNhan();
 
-				benhNhan.setMaBenhNhan(rs.getString("MaBenhNhan"));
+				benhNhan.setMaBenhNhan(rs.getInt("MaBenhNhan"));
 				benhNhan.setHoten(rs.getString("HoTen"));
 				benhNhan.setGioiTinh(rs.getString("GioiTinh"));
 				benhNhan.setDiaChi(rs.getString("DiaChi"));
@@ -54,7 +54,7 @@ public class PrescriptionMapper implements IMapper<PhieuKham> {
 			try {
 				DanhSachKham dsKham = new DanhSachKham();
 
-				dsKham.setMaDanhSachKham(rs.getString("MaDanhSachKham"));
+				dsKham.setMaDanhSachKham(rs.getInt("MaDanhSachKham"));
 				dsKham.setNgayKham(rs.getNString("NgayKham"));
 
 				pkKham.setDanhSach(dsKham);
@@ -68,15 +68,15 @@ public class PrescriptionMapper implements IMapper<PhieuKham> {
 				NguoiDung nguoiDung = new NguoiDung();
 
 				nguoiDung.setHoten(rs.getString("HoTen"));
-				nguoiDung.setMaNguoiDung(rs.getString("MaNguoiDung"));
+				nguoiDung.setMaNguoiDung(rs.getInt("MaNguoiDung"));
 				nguoiDung.setPass(rs.getString("MatKhau"));
 				nguoiDung.setUser(rs.getString("TenDanNhap"));
 
 				try {
 					VaiTro vaiTro = new VaiTro();
 					
-					vaiTro.setId(rs.getString("MaVaiTro"));
-					vaiTro.setId(rs.getString("TenVaiTro"));
+					vaiTro.setId(rs.getInt("MaVaiTro"));
+					vaiTro.setTenVaiTro(rs.getString("TenVaiTro"));
 					
 					nguoiDung.setVaiTro(vaiTro);
 				} catch (Exception e) {

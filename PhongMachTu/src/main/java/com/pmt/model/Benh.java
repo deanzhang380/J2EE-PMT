@@ -2,11 +2,11 @@ package com.pmt.model;
 
 public class Benh {
 	
-	private String maBenh;
+	private int maBenh;
 	private String tenBenh;
 	
 
-	public Benh(String maBenh, String tenBenh) {
+	public Benh(int maBenh, String tenBenh) {
 		super();
 		this.maBenh = maBenh;
 		this.tenBenh = tenBenh;
@@ -23,10 +23,10 @@ public class Benh {
 		this.tenBenh = tenBenh;
 	}
 	
-	public String getMaBenh() {
+	public int getMaBenh() {
 		return maBenh;
 	}
-	public void setMaBenh(String maBenh) {
+	public void setMaBenh(int maBenh) {
 		this.maBenh = maBenh;
 	}
 	

@@ -5,6 +5,8 @@ public class ChiTietPhieuKham {
 	private Thuoc thuoc = new Thuoc();
 	private CachDung cachDung = new CachDung();
 	private DonVi donVi = new DonVi();
+	
+	private int maChiTietPhieuKham;
 	private int soLuong;
 	private int ThanhTien;
 	
@@ -58,6 +60,14 @@ public class ChiTietPhieuKham {
 
 	public void setThanhTien(int thanhTien) {
 		ThanhTien = thanhTien;
+	}
+
+	public int getMaChiTietPhieuKham() {
+		return maChiTietPhieuKham;
+	}
+
+	public void setMaChiTietPhieuKham(int maChiTietPhieuKham) {
+		this.maChiTietPhieuKham = maChiTietPhieuKham;
 	}
 
 }

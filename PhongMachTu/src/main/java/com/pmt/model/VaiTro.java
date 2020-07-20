@@ -1,10 +1,10 @@
 package com.pmt.model;
 
 public class VaiTro {
-	private String id;
+	private int id;
 	private String tenVaiTro;
 	
-	public VaiTro(String id, String tenVaiTro) {
+	public VaiTro(int id, String tenVaiTro) {
 		super();
 		this.id = id;
 		this.tenVaiTro = tenVaiTro;
@@ -12,13 +12,12 @@ public class VaiTro {
 	public VaiTro() {
 		super();
 	}
-	public String getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
-	
 	public String getTenVaiTro() {
 		return tenVaiTro;
 	}

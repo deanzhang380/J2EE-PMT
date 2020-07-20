@@ -11,7 +11,7 @@ public class ExamineListMapper implements IMapper<DanhSachKham>{
 		try {
 			DanhSachKham dSachKham = new DanhSachKham();
 			
-			dSachKham.setMaDanhSachKham(rs.getString("MaDanhSachKham"));
+			dSachKham.setMaDanhSachKham(rs.getInt("MaDanhSachKham"));
 			dSachKham.setNgayKham(rs.getNString("NgayKham"));
 			
 			return dSachKham;
