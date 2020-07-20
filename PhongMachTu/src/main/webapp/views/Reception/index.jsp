@@ -59,7 +59,7 @@
       </div>
 		
       <li class="nav-item">
-        <a class="nav-link" href="<c:url value='/reception/registered'/>"  method="POST">
+        <a class="nav-link" href="<c:url value='/reception/register'/>"  method="POST">
           <i class="fas fa-medkit"></i>
           <span>Services Registered</span></a>
       </li>

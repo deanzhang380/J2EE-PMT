@@ -78,7 +78,7 @@
 
 			<!-- Nav Item - Pages Collapse Menu -->
 			<li class="nav-item"><a class="nav-link"
-				href="<c:url value='/reception/registered'/>" method="POST"> <i
+				href="<c:url value='/reception/register'/>" method="POST"> <i
 					class="fas fa-medkit"></i> <span>Services Registered</span></a></li>
 			<li class="nav-item"><a class="nav-link"
 				href="<c:url value='/reception/search'/>" method="POST"> <i
@@ -191,101 +191,80 @@
 						class="d-sm-flex align-items-center justify-content-between mb-4">
 						<h1 class="h3 mb-0 text-gray-800">Services Registered</h1>
 					</div>
-					<div class="card card-5">
-						<div class="card-body">
-							<form method="POST">
-								<div class="form-row ">
-									<div class="name"></div>
-									<div class="value">
-										<div class="row row-space-2-items">
-											<div class="col-2">
-												<div class="input-group-desc">
-													<input type="text" class="form-control form-control-user"
-														id="exampleLastName" value="20/6/2020" disabled> <label
-														class="label--desc">Date</label>
-												</div>
-											</div>
-										</div>
-
-									</div>
-								</div>
-								<div class="form-row m-b-20">
-									<div class="name">Patients ID</div>
-									<div class="value">
-										<div class="row row-space">
-											<div class="col-2">
-												<div class="input-group-desc">
-													<input type="text" class="form-control form-control-user"
-														id="exampleLastName" value="BN00002" disabled>
-												</div>
-											</div>
-										</div>
-
-									</div>
-								</div>
-								<div class="form-row m-b-20">
-									<div class="name">Name</div>
-									<div class="value">
-										<div class="row row-space">
-											<div class="col-6">
-												<div class="input-group-desc">
-													<input type="text" class="form-control form-control-user"
-														id="exampleLastName">
-												</div>
-											</div>
-
-										</div>
-									</div>
-								</div>
-								<div class="form-row m-b-20">
-									<div class="name">Sex</div>
-									<div class="value">
-										<div class="input-group">
-											<div class="rs-select2 js-select-simple select--no-search">
-												<select name="subject">
-													<option disabled="disabled" selected="selected">Sex
-													</option>
-													<option>Nam</option>
-													<option>Nữ</option>
-												</select>
-												<div class="select-dropdown"></div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="form-row m-b-20">
-									<div class="name">Birth Date</div>
-									<div class="value">
-										<div class="row row-space">
-											<div class="col-6">
-												<div class="input-group-desc">
-													<input type="text" class="form-control form-control-user"
-														id="exampleLastName">
-												</div>
-											</div>
-
-										</div>
-									</div>
-								</div>
-								<div class="form-row m-b-20">
-									<div class="name">Address</div>
-									<div class="value">
-										<div class="row row-space">
-											<div class="col-6">
-												<div class="input-group-desc">
-													<input type="text" class="form-control form-control-user"
-														id="exampleLastName">
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div>
-									<button class="btn btn--radius-2 btn--blue" type="submit">Register</button>
-								</div>
-							</form>
-						</div>
+					<div class="alert alert-${alert}">
+						<strong>${message}</strong>
 					</div>
+					<form action="<c:url value='/reception/register'/>" class="patient"
+						method="POST">
+						<div class="card card-5">
+							<div class="card-body">
+								<form method="POST">
+									<div class="form-row ">
+										<div class="name"></div>
+										<div class="value">
+											<div class="row row-space-2-items">
+												<div class="col-2">
+													<div class="input-group-desc">
+														<input type="text" class="form-control form-control-user"
+															id="exampleLastName" value="20/6/2020" disabled>
+														<label class="label--desc">Date</label>
+													</div>
+												</div>
+											</div>
+
+										</div>
+									</div>
+									<div class="form-row m-b-20">
+										<div class="name">Name</div>
+										<div class="value">
+											<div class="row row-space">
+												<div class="col-6">
+													<div class="input-group-desc">
+														<input type="text" class="form-control form-control-user"
+															name="patientName">
+													</div>
+												</div>
+
+											</div>
+										</div>
+									</div>
+									<div class="form-row m-b-20">
+										<div class="name">Gender</div>
+										<div class="value">
+											<div class="input-group">
+												<div class="rs-select2 js-select-simple select--no-search">
+													<select name="patientGender">
+														<option disabled="disabled" selected="selected">Gender
+														</option>
+														<option>Male</option>
+														<option>Female</option>
+													</select>
+													<div class="select-dropdown"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-row m-b-20">
+										<div class="name">Address</div>
+										<div class="value">
+											<div class="row row-space">
+												<div class="col-6">
+													<div class="input-group-desc">
+														<input type="text" class="form-control form-control-user"
+															name="patientAddress">
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div>
+										<button class="btn btn--radius-2 btn--blue" type="submit">Register</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</form>
 				</div>
 				<!-- End of Main Content -->
 
@@ -320,7 +299,7 @@
 							Leave?</h5>
 						<button class="close" type="button" data-dismiss="modal"
 							aria-label="Close">
-							<span aria-hidden="true">×</span>
+							<span aria-hidden="true">Ã</span>
 						</button>
 					</div>
 					<div class="modal-body">Select "Logout" below if you are

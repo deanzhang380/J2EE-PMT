@@ -7,11 +7,11 @@ import com.pmt.model.BenhNhan;;
 public class PatientDao extends AbstractDAO<BenhNhan> implements IPatientDao{
 
 	@Override
-	public String InsertPatient(String ID, String name, String sex, String Address) {
+	public String InsertPatient(String name, String Gender, String Address) {
 		// TODO Auto-generated method stub
-		StringBuilder sql = new StringBuilder("INSERT INTO benhnhan");
-		sql.append("VALUES ('?','?','?','?')");
-		String newPatient = insert(sql.toString(), ID,name,sex,Address);
+		StringBuilder sql = new StringBuilder("INSERT INTO benhnhan (HoTen,GioiTinh,DiaChi)");
+		sql.append(" VALUES (?,?,?)");
+		String newPatient = insert(sql.toString(),name,Gender,Address);
 		return newPatient;
 	}
 

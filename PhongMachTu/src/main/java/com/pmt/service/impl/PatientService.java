@@ -12,9 +12,11 @@ public class PatientService implements IPatientService {
 	@Inject
 	private IPatientDao PatientDao;
 	@Override
-	public String insertPatient(String patientID, String patientName, String patientSex, String patientAddress) {
+	public String insertPatient( String patientName, String patientGender, String patientAddress) {
 		// TODO Auto-generated method stub
-		return PatientDao.InsertPatient(patientID,patientName,patientSex,patientAddress);
+		return PatientDao.InsertPatient(patientName,patientGender,patientAddress);
 	}
+	
+	
 
 }

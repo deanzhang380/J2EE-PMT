@@ -40,11 +40,11 @@ public class LoginController extends HttpServlet {
 		
 		if (user != null && user.getVaiTro().getTenVaiTro().equalsIgnoreCase("admin") ) {
 			resp.sendRedirect(req.getContextPath()+"/admin-home");
-		} else if (user != null && user.getVaiTro().getId().equalsIgnoreCase("VT2") ) {
+		} else if (user != null && user.getVaiTro().getId()==2 ) {
 			resp.sendRedirect(req.getContextPath()+"/reception");
-		} else if (user != null && user.getVaiTro().getId().equalsIgnoreCase("VT3") ) {
+		} else if (user != null && user.getVaiTro().getId()==3 ) {
 			resp.sendRedirect(req.getContextPath()+"/Doctor");
-		} else if (user != null && user.getVaiTro().getId().equalsIgnoreCase("VT4") ) {
+		} else if (user != null && user.getVaiTro().getId()==4 ) {
 			resp.sendRedirect(req.getContextPath()+"/Pharmacies");
 		} else {
 			resp.sendRedirect(req.getContextPath()+"/login");
