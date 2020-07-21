@@ -192,7 +192,7 @@
 						<h1 class="h3 mb-0 text-gray-800">Services Registered</h1>
 					</div>
 					<div class="alert alert-${alert}">
-						<strong>${message}</strong>
+						<strong id="alert">${message}</strong>
 					</div>
 					<form action="<c:url value='/reception/register'/>" class="patient"
 						method="POST">
@@ -331,6 +331,15 @@
 		<!-- Page level custom scripts -->
 		<script src="<c:url value = "/js/demo/chart-area-demo.js"/>"></script>
 		<script src="<c:url value = "/js/demo/chart-pie-demo.js"/>"></script>
+
+		<script type="text/javascript">
+			function getMessage(message) {
+				if (message == "success")
+					document.getElementById('alert').value = "Dang ky thanh cong";
+				else
+					document.getElementById('alert').value = "Dang ky that bai";
+			}
+		</script>
 </body>
 
 </html>
