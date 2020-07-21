@@ -3,6 +3,7 @@ import java.util.List;
 
 import com.pmt.dao.IPatientDao;
 import com.pmt.mapper.PatientMapper;
+import com.pmt.mapper.UserMapper;
 import com.pmt.model.BenhNhan;;
 public class PatientDao extends AbstractDAO<BenhNhan> implements IPatientDao{
 
@@ -13,6 +14,14 @@ public class PatientDao extends AbstractDAO<BenhNhan> implements IPatientDao{
 		sql.append(" VALUES (?,?,?)");
 		String newPatient = insert(sql.toString(),name,Gender,Address);
 		return newPatient;
+	}
+
+	@Override
+	public List<BenhNhan> getPatientListByDate(String Date) {
+		StringBuilder sql = new StringBuilder("select benhnhan.* from chitietdanhsachkham join danhsachkham join benhnhan ");
+		sql.append(" where chitietdanhsachkham.MaDanhSachKham=danhsachkham.MaDanhSachKham&&chitietdanhsachkham.MaBenhNhan=benhnhan.MaBenhNhan&& danhsachkham.NgayKham=?");
+		List<BenhNhan> PatientList = query(sql.toString(), new PatientMapper(), Date);
+		return PatientList;
 	}
 
 }
