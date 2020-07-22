@@ -18,4 +18,22 @@ public class ExaminesListDao extends AbstractDAO<DanhSachKham> implements IExami
 		return item.isEmpty() ? null : item.get(0);
 	}
 
+	@Override
+	public int checkIdByDate(String Date) {
+		StringBuilder sql = new StringBuilder("SELECT count(danhsachkham.NgayKham) FROM phongmachtu.danhsachkham");
+		sql.append(" where danhsachkham.NgayKham=?");
+		int item = count(sql.toString(), Date);
+		return item;
+	}
+
+	@Override
+	public String insertExaminesList(String Date) {
+		StringBuilder sql = new StringBuilder("INSERT INTO danhsachkham");
+		sql.append(" VALUES (?)");
+		String newExaminse = insert(sql.toString(),Date);
+		return newExaminse;
+	}
+
+
+
 }

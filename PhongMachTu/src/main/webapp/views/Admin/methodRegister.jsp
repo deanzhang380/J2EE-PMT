@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +14,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Services Registered</title>
+<title>Home</title>
 
 <!-- Custom fonts for this template-->
 <link href="<c:url value = "/vendor/fontawesome-free/css/all.min.css"/>"
@@ -27,16 +27,10 @@
 <link href="<c:url value = "/css/sb-admin-2.min.css"/>" rel="stylesheet">
 <link href="<c:url value = "/css/main.css"/>" rel="stylesheet"
 	media="all">
+<link
+	href="<c:url value = "/vendor/datatables/dataTables.bootstrap4.min.css"/>"
+	rel="stylesheet">
 
-<!-- Font special for pages-->
-
-<!-- Vendor CSS-->
-<link href="<c:url value = "/vendor/select2/select2.min.css"/>"
-	rel="stylesheet" media="all">
-<link href="<c:url value = "/vendor/datepicker/daterangepicker.css"/>"
-	rel="stylesheet" media="all">
-
-<!-- Main CSS-->
 
 </head>
 
@@ -66,26 +60,36 @@
 			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - Dashboard -->
-			<li class="nav-item active"><a class="nav-link"
-				href="index.html"> <i class="fas fa-home"></i> <span>Home</span></a>
-			</li>
+			<li class="nav-item active"><a class="nav-link" href=""> <i
+					class="fas fa-home"></i> <span>Home</span></a></li>
 
 			<!-- Divider -->
 			<hr class="sidebar-divider">
 
 			<!-- Heading -->
-			<div class="sidebar-heading">Interface</div>
+			<div class="sidebar-heading">Manage Resource</div>
 
-			<!-- Nav Item - Pages Collapse Menu -->
 			<li class="nav-item"><a class="nav-link"
-				href="<c:url value='/reception/register'/>" method="POST"> <i
-					class="fas fa-medkit"></i> <span>Services Registered</span></a></li>
+				href="<c:url value='/Admin/accountRegister'/>" method="POST"> <i
+					class="fas fa-user-circle"></i> <span>Account Management</span></a></li>
 			<li class="nav-item"><a class="nav-link"
-				href="<c:url value='/reception/search'/>" method="POST"> <i
-					class="fas fa-medkit"></i> <span>Patients Search</span></a></li>
-
+				href="<c:url value='/Admin/drugRegister'/>" method="POST"> <i
+					class="fas fa-prescription-bottle-alt"></i> <span>Drug
+						Management</span></a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="<c:url value='/Admin/unitRegister'/>" method="POST"> <i
+					class="fas fa-tablets"></i> <span>Unit Management</span></a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="<c:url value='/Admin/methodRegister'/>" method="POST"> <i
+					class="fas fa-notes-medical"></i> <span>Method Management</span></a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="<c:url value='/Admin/parameterRegister'/>" method="POST">
+					<i class="fas fa-list-ol"></i> <span>Parameter Management</span>
+			</a></li>
 			<!-- Nav Item - Pages Collapse Menu -->
 			<hr class="sidebar-divider">
+
+
 
 		</ul>
 		<!-- End of Sidebar -->
@@ -107,19 +111,6 @@
 					</button>
 
 					<!-- Topbar Search -->
-					<form
-						class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-						<div class="input-group">
-							<input type="text" class="form-control bg-light border-0 small"
-								placeholder="Search for..." aria-label="Search"
-								aria-describedby="basic-addon2">
-							<div class="input-group-append">
-								<button class="btn btn-primary" type="button">
-									<i class="fas fa-search fa-sm"></i>
-								</button>
-							</div>
-						</div>
-					</form>
 
 					<!-- Topbar Navbar -->
 					<ul class="navbar-nav ml-auto">
@@ -189,39 +180,22 @@
 					<!-- Page Heading -->
 					<div
 						class="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 class="h3 mb-0 text-gray-800">Services Registered</h1>
-					</div>
-					<div class="alert alert-${alert}">
-						<strong id="alert">${message}</strong>
+						<h1 class="h3 mb-0 text-gray-800">Method Register</h1>
+
 					</div>
 					<form action="<c:url value='/reception/register'/>" class="patient"
 						method="POST">
 						<div class="card card-5">
 							<div class="card-body">
 								<form method="POST">
-									<div class="form-row ">
-										<div class="name"></div>
-										<div class="value">
-											<div class="row row-space-2-items">
-												<div class="col-2">
-													<div class="input-group-desc">
-														<input type="text" class="form-control form-control-user"
-														name="Date"	id="Date" value=""  onKeyDown="return false" >
-														<label class="label--desc">Date</label>
-													</div>
-												</div>
-											</div>
-
-										</div>
-									</div>
 									<div class="form-row m-b-20">
-										<div class="name">Name</div>
+										<div class="name">ID</div>
 										<div class="value">
 											<div class="row row-space">
 												<div class="col-6">
 													<div class="input-group-desc">
 														<input type="text" class="form-control form-control-user"
-															name="patientName">
+															name="id">
 													</div>
 												</div>
 
@@ -229,121 +203,130 @@
 										</div>
 									</div>
 									<div class="form-row m-b-20">
-										<div class="name">Gender</div>
-										<div class="value">
-											<div class="input-group">
-												<div class="rs-select2 js-select-simple select--no-search">
-													<select name="patientGender">
-														<option disabled="disabled" selected="selected">Gender
-														</option>
-														<option>Male</option>
-														<option>Female</option>
-													</select>
-													<div class="select-dropdown"></div>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="form-row m-b-20">
-										<div class="name">Address</div>
+										<div class="name">Method Name</div>
 										<div class="value">
 											<div class="row row-space">
 												<div class="col-6">
 													<div class="input-group-desc">
 														<input type="text" class="form-control form-control-user"
-															name="patientAddress">
+															name="name">
 													</div>
 												</div>
+
 											</div>
 										</div>
 									</div>
-									<div>
-										<button class="btn btn--radius-2 btn--blue" type="submit">Register</button>
+
+									<div style="display:flex;">
+										<button style="margin-right:20px" class="btn btn--radius-2 btn--blue" action="create" type="submit">Create</button>									
+										<button style="margin-right:20px"  class="btn btn--radius-2 btn--blue" action="update" type="submit">Update</button>
+										<button style="margin-right:20px"  class="btn btn--radius-2 btn--blue" action="submit" type="submit">Delete</button>
 									</div>
 								</form>
+
+								<div style="margin-top: 10px" class="card shadow mb-4">
+									<div class="card-header py-3">
+										<h6 class="m-0 font-weight-bold text-primary">Patients
+											Table</h6>
+									</div>
+									<div class="card-body">
+										<div class="table-responsive">
+											<table class="table table-bordered" id="dataTable"
+												width="100%" cellspacing="0">
+												<thead>
+													<tr>
+														<th>ID</th>
+														<th>Method Name</th>
+														
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td></td>
+													</tr>
+
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
 							</div>
-						</div>
-					</form>
-				</div>
-				<!-- End of Main Content -->
+							<!-- /.container-fluid -->
 
-				<!-- Footer -->
-				<footer class="sticky-footer bg-white">
-					<div class="container my-auto">
-						<div class="copyright text-center my-auto">
-							<span>Copyright &copy; Your Website 2020</span>
 						</div>
-					</div>
-				</footer>
-				<!-- End of Footer -->
+						<!-- End of Main Content -->
+
+						<!-- Footer -->
+						<footer class="sticky-footer bg-white">
+							<div class="container my-auto">
+								<div class="copyright text-center my-auto">
+									<span>Copyright &copy; Your Website 2020</span>
+								</div>
+							</div>
+						</footer>
+						<!-- End of Footer -->
+				</div>
+				<!-- End of Content Wrapper -->
 
 			</div>
-			<!-- End of Content Wrapper -->
+			<!-- End of Page Wrapper -->
 
-		</div>
-		<!-- End of Page Wrapper -->
+			<!-- Scroll to Top Button-->
+			<a class="scroll-to-top rounded" href="#page-top"> <i
+				class="fas fa-angle-up"></i>
+			</a>
 
-		<!-- Scroll to Top Button-->
-		<a class="scroll-to-top rounded" href="#page-top"> <i
-			class="fas fa-angle-up"></i>
-		</a>
-
-		<!-- Logout Modal-->
-		<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
-			aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Ready to
-							Leave?</h5>
-						<button class="close" type="button" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">Ã</span>
-						</button>
-					</div>
-					<div class="modal-body">Select "Logout" below if you are
-						ready to end your current session.</div>
-					<div class="modal-footer">
-						<button class="btn btn-secondary" type="button"
-							data-dismiss="modal">Cancel</button>
-						<a class="btn btn-primary" href="login.html">Logout</a>
+			<!-- Logout Modal-->
+			<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+				aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Ready to
+								Leave?</h5>
+							<button class="close" type="button" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">×</span>
+							</button>
+						</div>
+						<div class="modal-body">Select "Logout" below if you are
+							ready to end your current session.</div>
+						<div class="modal-footer">
+							<button class="btn btn-secondary" type="button"
+								data-dismiss="modal">Cancel</button>
+							<a class="btn btn-primary" href="login.html">Logout</a>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 
-		<!-- Bootstrap core JavaScript-->
-		<script src="<c:url value = "/vendor/jquery/jquery.min.js"/>"></script>
-		<script
-			src="<c:url value = "/vendor/bootstrap/js/bootstrap.bundle.min.js"/>"></script>
+			<!-- Bootstrap core JavaScript-->
+			<script src="<c:url value = "/vendor/jquery/jquery.min.js"/>"></script>
+			<script
+				src="<c:url value = "/vendor/bootstrap/js/bootstrap.bundle.min.js"/>"></script>
 
-		<!-- Core plugin JavaScript-->
-		<script
-			src="<c:url value = "/vendor/jquery-easing/jquery.easing.min.js"/>"></script>
+			<!-- Core plugin JavaScript-->
+			<script
+				src="<c:url value = "/vendor/jquery-easing/jquery.easing.min.js"/>"></script>
 
-		<!-- Custom scripts for all pages-->
-		<script src="<c:url value = "/js/sb-admin-2.min.js"/>"></script>
+			<!-- Custom scripts for all pages-->
+			<script src="<c:url value = "/js/sb-admin-2.min.js"/>"></script>
 
-		<!-- Page level plugins -->
-		<script src="<c:url value = "/vendor/chart.js/Chart.min.js"/>"></script>
+			<!-- Page level plugins -->
+			<script src="<c:url value = "/vendor/chart.js/Chart.min.js"/>"></script>
 
-		<!-- Page level custom scripts -->
-		<script src="<c:url value = "/js/demo/chart-area-demo.js"/>"></script>
-		<script src="<c:url value = "/js/demo/chart-pie-demo.js"/>"></script>
+			<!-- Page level custom scripts -->
+			<script src="<c:url value = "/js/demo/chart-area-demo.js"/>"></script>
+			<script src="<c:url value = "/js/demo/chart-pie-demo.js"/>"></script>
 
-		<script type="text/javascript">
-				today = new Date();
-				var dd = today.getDate();
-				var mm = today.getMonth() + 1; //As January is 0.
-				var yyyy = today.getFullYear();
+			<!-- Page level plugins -->
+			<script
+				src="<c:url value = "/vendor/datatables/jquery.dataTables.min.js"/>"></script>
+			<script
+				src="<c:url value = "/vendor/datatables/dataTables.bootstrap4.min.js"/>"></script>
 
-				if (dd < 10)
-					dd = '0' + dd;
-				if (mm < 10)
-					mm = '0' + mm;
-				document.getElementById("Date").value = (dd + '/'+ mm + '/' + yyyy);
-		</script>
+			<!-- Page level custom scripts -->
+			<script src="<c:url value = "/js/demo/datatables-demo.js"/>"></script>
 </body>
 
 </html>
