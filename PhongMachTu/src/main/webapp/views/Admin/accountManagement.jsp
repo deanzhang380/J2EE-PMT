@@ -71,20 +71,22 @@
 
 
 			<li class="nav-item"><a class="nav-link"
-				href="<c:url value='/Admin/accountRegister'/>" method="POST"> <i
+				href="<c:url value='/Admin/accountManagement'/>" method="POST"> <i
 					class="fas fa-user-circle"></i> <span>Account Management</span></a></li>
 			<li class="nav-item"><a class="nav-link"
-				href="<c:url value='/Admin/drugRegister'/>" method="POST"> <i
-					class="fas fa-prescription-bottle-alt"></i> <span>Drug Management</span></a></li> 
+				href="<c:url value='/Admin/drugManagement'/>" method="POST"> <i
+					class="fas fa-prescription-bottle-alt"></i> <span>Drug
+						Management</span></a></li>
 			<li class="nav-item"><a class="nav-link"
-				href="<c:url value='/Admin/unitRegister'/>" method="POST"> <i
+				href="<c:url value='/Admin/unitManagement'/>" method="POST"> <i
 					class="fas fa-tablets"></i> <span>Unit Management</span></a></li>
 			<li class="nav-item"><a class="nav-link"
-				href="<c:url value='/Admin/methodRegister'/>" method="POST"> <i
-					class="fas fa-notes-medical"></i> <span>Method Management</span></a></li> 
+				href="<c:url value='/Admin/methodManagement'/>" method="POST"> <i
+					class="fas fa-notes-medical"></i> <span>Method Management</span></a></li>
 			<li class="nav-item"><a class="nav-link"
-				href="<c:url value='/Admin/parameterRegister'/>" method="POST"> <i
-					class="fas fa-list-ol"></i> <span>Parameter Management</span></a></li> 		
+				href="<c:url value='/Admin/parameterManagement'/>" method="POST">
+					<i class="fas fa-list-ol"></i> <span>Parameter Management</span>
+			</a></li>
 			<!-- Nav Item - Pages Collapse Menu -->
 			<hr class="sidebar-divider">
 
@@ -207,7 +209,7 @@
 												<div class="col-6">
 													<div class="input-group-desc">
 														<input type="text" class="form-control form-control-user"
-															name="Account">
+															name="account">
 													</div>
 												</div>
 
@@ -222,7 +224,7 @@
 												<div class="col-6">
 													<div class="input-group-desc">
 														<input type="password" class="form-control form-control-user"
-															name="Password">
+															name="password">
 													</div>
 												</div>
 											</div>
