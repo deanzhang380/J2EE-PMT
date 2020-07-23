@@ -11,5 +11,5 @@ public interface IDao<T> {
 	void update (String sql, Object... parameters);
 	String insert (String sql, Object... parameters);
 	int count(String sql, Object... parameters);
-	void delete (String sql, Object... parameters);
+	void delete (String sql, Object...parameters);
 }

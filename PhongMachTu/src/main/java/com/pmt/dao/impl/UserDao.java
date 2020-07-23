@@ -15,43 +15,16 @@ public class UserDao extends AbstractDAO<NguoiDung> implements IUserDao {
 		sql.append(" FROM nguoidung as u join vaitro as v on u.MaVaiTro = v.MaVaiTro");
 		sql.append(" WHERE TenDangNhap = ? AND MatKhau = ?");
 		
+		//String sqlString = "SELECT * FROM nguoidung";
+		
 		List<NguoiDung> user = query(sql.toString(), new UserMapper(), name, pass);
+		//List<NguoiDung> user = query(sqlString, new UserMapper());
 		
 		return user.isEmpty() ? null : user.get(0);
 	}
 
-	@Override
-	public List<NguoiDung> findAll() {
-		String sql = "SELECT * FROM nguoidung as u join vaitro as v on u.MaVaiTro = v.MaVaiTro";
-		
-		return query(sql, new UserMapper());
-	}
-
-	@Override
-	public void update(int id, String hoTen, String name, String pass, int maVaiTro) {
-
-		StringBuilder sql = new StringBuilder("UPDATE nguoidung");
-		sql.append(" VALUES(?,?,?,?)");
-		sql.append(" WHERE maNguoiDung = ?");
+	
 			
-		update(sql.toString(), hoTen, name, pass, maVaiTro, id);
-	}
 
-
-	@Override
-	public void insert(String hoTen, String name, String pass, int maVaiTro) {
-		StringBuilder sql = new StringBuilder("INSERT INTO NguoiDung(HoTen, TenDangNhap, MatKhau, MaVaiTro)");
-		sql.append(" VALUES(?,?,?,?)");
-		
-		insert(sql.toString(), hoTen, name, pass, maVaiTro);
-	}
-
-	@Override
-	public void delete(int id) {
-		StringBuilder sql = new StringBuilder("DELETE FORM nguoidung");
-		sql.append(" WHERE maNguoiDung = ?");
-		
-		delete(sql.toString(), id);
-	}
 
 }
