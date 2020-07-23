@@ -27,7 +27,8 @@
 <link href="<c:url value = "/vendor/fontawesome-free/css/all.min.css"/>"
 	rel="stylesheet" type="text/css">
 <link href="<c:url value = "/css/sb-admin-2.min.css"/>" rel="stylesheet">
-<link href="<c:url value = "/vendor/fontawesome-free/css/all.min.css"/>" rel="stylesheet" type="text/css">
+<link href="<c:url value = "/vendor/fontawesome-free/css/all.min.css"/>"
+	rel="stylesheet" type="text/css">
 
 </head>
 
@@ -69,15 +70,17 @@
 
 
 			<li class="nav-item"><a class="nav-link"
-				href="patientSearch.html"> <i class="fas fa-medkit"></i> <span>Patients
-						List</span></a></li>
+				href="<c:url value='/Doctor/patientList'/>" method="POST"> <i
+					class="fas fa-medkit"></i> <span>Patients List</span></a></li>
 
-			<li class="nav-item"><a class="nav-link" href="examines.html">
-					<i class="fas fa-medkit"></i> <span>Examines</span>
+			<li class="nav-item"><a class="nav-link"
+				href="<c:url value='/Doctor/examines'/>" method="POST"> <i
+					class="fas fa-medkit"></i> <span>Examines</span>
 			</a></li>
 
-			<li class="nav-item"><a class="nav-link" href="medicalBill.html">
-					<i class="fas fa-medkit"></i> <span>Medical Bill</span>
+			<li class="nav-item"><a class="nav-link"
+				href="<c:url value='/Doctor/patientList'/>" method="POST"> <i
+					class="fas fa-medkit"></i> <span>Medical Bill</span>
 			</a></li>
 
 
