@@ -23,6 +23,20 @@ public class UserDao extends AbstractDAO<NguoiDung> implements IUserDao {
 		return user.isEmpty() ? null : user.get(0);
 	}
 
+	@Override
+	public NguoiDung findUserByID(String ID) {
+		StringBuilder sql = new StringBuilder("SELECT *");
+		sql.append(" FROM nguoidung");
+		sql.append(" WHERE MaNguoiDung=?");
+		
+		//String sqlString = "SELECT * FROM nguoidung";
+		
+		List<NguoiDung> user = query(sql.toString(), new UserMapper(), ID);
+		//List<NguoiDung> user = query(sqlString, new UserMapper());
+		
+		return user.isEmpty() ? null : user.get(0);
+	}
+
 	
 			
 

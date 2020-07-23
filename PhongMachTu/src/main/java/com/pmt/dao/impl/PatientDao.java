@@ -24,4 +24,13 @@ public class PatientDao extends AbstractDAO<BenhNhan> implements IPatientDao{
 		return PatientList;
 	}
 
+	@Override
+	public BenhNhan getPatientByID(String ID) {
+		// TODO Auto-generated method stub
+		StringBuilder sql = new StringBuilder("select benhnhan.* from benhnhan ");
+		sql.append(" where benhnhan.MaBenhNhan=?");
+		List<BenhNhan> PatientList = query(sql.toString(), new PatientMapper(), ID);
+		return PatientList.isEmpty() ? null : PatientList.get(0);
+	}
+
 }

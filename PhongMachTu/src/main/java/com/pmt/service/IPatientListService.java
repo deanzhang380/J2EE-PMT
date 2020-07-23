@@ -7,4 +7,5 @@ import com.pmt.model.ChiTietDanhSachKham;
 public interface IPatientListService {
 	DanhSachKham getIdPatientListByDate(String Date);
 	List<BenhNhan> getPatientListByDate(String Date);
+	int CheckPatientInList (BenhNhan bn,String Date);
 }

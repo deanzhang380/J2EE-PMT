@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import com.pmt.dao.IExaminesListDao;
 import com.pmt.dao.IPatientDao;
+import com.pmt.dao.IPrescriptionDao;
 import com.pmt.model.BenhNhan;
 import com.pmt.model.DanhSachKham;
 import com.pmt.service.IPatientListService;
@@ -17,6 +18,9 @@ public class PatientListService implements IPatientListService{
 	@Inject
 	private IPatientDao patientDao;
 	
+	@Inject
+	private IPrescriptionDao prescriptionDao;
+	
 	@Override
 	public DanhSachKham getIdPatientListByDate(String Date) {
 		// TODO Auto-generated method stub
@@ -26,6 +30,11 @@ public class PatientListService implements IPatientListService{
 	public List<BenhNhan> getPatientListByDate(String Date) {
 		// TODO Auto-generated method stub
 		return patientDao.getPatientListByDate(Date);
+	}
+	@Override
+	public int CheckPatientInList(BenhNhan bn,String Date) {
+		// TODO Auto-generated method stub
+		return prescriptionDao.CheckPatientInList(bn, Date);
 	}
 
 }
