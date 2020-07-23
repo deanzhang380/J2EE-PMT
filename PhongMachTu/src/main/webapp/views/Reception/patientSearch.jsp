@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %> 
+	pageEncoding="ISO-8859-1"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,8 +25,11 @@
 
 <!-- Custom styles for this template-->
 <link href="<c:url value = "/css/sb-admin-2.min.css"/>" rel="stylesheet">
-<link href="<c:url value = "/css/main.css"/>" rel="stylesheet" media="all">
-<link href="<c:url value = "/vendor/datatables/dataTables.bootstrap4.min.css"/>" rel="stylesheet">
+<link href="<c:url value = "/css/main.css"/>" rel="stylesheet"
+	media="all">
+<link
+	href="<c:url value = "/vendor/datatables/dataTables.bootstrap4.min.css"/>"
+	rel="stylesheet">
 
 
 </head>
@@ -99,19 +102,6 @@
 					</button>
 
 					<!-- Topbar Search -->
-					<form
-						class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-						<div class="input-group">
-							<input type="text" class="form-control bg-light border-0 small"
-								placeholder="Search for..." aria-label="Search"
-								aria-describedby="basic-addon2">
-							<div class="input-group-append">
-								<button class="btn btn-primary" type="button">
-									<i class="fas fa-search fa-sm"></i>
-								</button>
-							</div>
-						</div>
-					</form>
 
 					<!-- Topbar Navbar -->
 					<ul class="navbar-nav ml-auto">
@@ -188,6 +178,22 @@
 							Patients</a>
 					</div>
 
+					<form action="<c:url value='/reception/search'/>" method="POST"
+						class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+						<div class="input-group" style="margin-bottom: 10px">
+							<input type="date" class="form-control bg-light border-0 small"
+								style="font-size: 2rem; margin-right: 10px"
+								placeholder="Search patient list by Date" aria-label="Search"
+								aria-describedby="basic-addon2" name="searchDate">
+							<div class="input-group-append">
+								<button class="btn btn-primary" type="submit">
+									<i class="fas fa-search fa-sm"></i>
+								</button>
+							</div>
+						</div>
+					</form>
+
+
 
 					<div class="card shadow mb-4">
 						<div class="card-header py-3">
@@ -202,48 +208,18 @@
 											<th>Patients ID</th>
 											<th>Full Name</th>
 											<th>Sex</th>
-											<th>Birth Date</th>
 											<th>Address</th>
-
 										</tr>
 									</thead>
-									<!-- <tfoot>
-                                            <tr>
-                                                <th>Patients ID</th>
-                                                <th>Full Name</th>
-                                                <th>Sex</th>
-                                                <th>Birth Date</th>
-                                                <th>Address</th>
-                                            </tr>
-                                          </tfoot> -->
 									<tbody>
-										<tr>
-											<td>BN00001</td>
-											<td>Trương Tuấn Ngạn</td>
-											<td>Nam</td>
-											<td>12/12/1997</td>
-											<td>171 đường số 5 phường Bình Trị Đông B
-												Quận Bình Tân</td>
-
-										</tr>
-										<tr>
-											<td>BN00001</td>
-											<td>Trương Tuấn Ngạn</td>
-											<td>Nam</td>
-											<td>12/12/1997</td>
-											<td>171 đường số 5 phường Bình Trị Đông B
-												Quận Bình Tân</td>
-
-										</tr>
-										<tr>
-											<td>BN00001</td>
-											<td>Trương Tuấn Ngạn</td>
-											<td>Nam</td>
-											<td>12/12/1997</td>
-											<td>171 đường số 5 phường Bình Trị Đông B
-												Quận Bình Tân</td>
-
-										</tr>
+										<c:forEach items="${patientList}" var="patient">
+											<tr>
+												<td>${patient.getMaBenhNhan()}</td>
+												<td>${patient.getHoten()}</td>
+												<td>${patient.getGioiTinh()}</td>
+												<td>${patient.getDiaChi()}</td>
+											</tr>
+										</c:forEach>
 									</tbody>
 								</table>
 							</div>

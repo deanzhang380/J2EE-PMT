@@ -27,7 +27,7 @@ public class AbstractDAO<T> implements IDao<T> {
 			statement = connection.prepareStatement(sql);
 			setParameters(statement, parameters);
 			resultSet = statement.executeQuery();
-			//resultSet = statement.getResultSet();
+			// resultSet = statement.getResultSet();
 
 			while (resultSet.next()) {
 				results.add(mapper.mapRow(resultSet));
@@ -105,19 +105,18 @@ public class AbstractDAO<T> implements IDao<T> {
 			connection = DBConnection.getConnection();
 			connection.setAutoCommit(false);
 			statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-			
+
 			setParameters(statement, parameters);
 			int idint = statement.executeUpdate();
-//			resultSet = statement.getGeneratedKeys();
-//
-//			while (resultSet.next()) {
-//				idString = resultSet.getString(1);
-//			}
-			
+			resultSet = statement.getGeneratedKeys();
+			while (resultSet.next()) {
+				idString = resultSet.getString(1);
+			}
+
 			connection.commit();
-			
-			return "Insert success";
-			
+
+			return idString;
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 
@@ -144,22 +143,22 @@ public class AbstractDAO<T> implements IDao<T> {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
-		
+
 		try {
 			int count = 0;
 			connection = DBConnection.getConnection();
 			connection.setAutoCommit(false);
 			statement = connection.prepareStatement(sql);
 			setParameters(statement, parameters);
-			
+
 			resultSet = statement.executeQuery();
 
 			while (resultSet.next()) {
 				count = resultSet.getInt(1);
 			}
-			
+
 			return count;
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return 0;
@@ -182,17 +181,17 @@ public class AbstractDAO<T> implements IDao<T> {
 	}
 
 	@Override
-	public void delete(String sql, Object... parameters) {
+	public void delete(String sql, Object... parameters) {		
 		Connection connection = null;
 		PreparedStatement statement = null;
 		int row = 0;
-		
+
 		try {
 			connection = DBConnection.getConnection();
 			statement = connection.prepareStatement(sql);
 			setParameters(statement, parameters);
 			row = statement.executeUpdate();
-			
+
 		} catch (Exception e) {
 			// TODO: handle exception
 		} finally {

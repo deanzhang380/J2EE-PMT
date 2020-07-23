@@ -192,7 +192,7 @@
 						<h1 class="h3 mb-0 text-gray-800">Services Registered</h1>
 					</div>
 					<div class="alert alert-${alert}">
-						<strong>${message}</strong>
+						<strong id="alert">${message}</strong>
 					</div>
 					<form action="<c:url value='/reception/register'/>" class="patient"
 						method="POST">
@@ -206,7 +206,7 @@
 												<div class="col-2">
 													<div class="input-group-desc">
 														<input type="text" class="form-control form-control-user"
-															id="exampleLastName" value="20/6/2020" disabled>
+														name="Date"	id="Date" value=""  onKeyDown="return false" >
 														<label class="label--desc">Date</label>
 													</div>
 												</div>
@@ -331,6 +331,19 @@
 		<!-- Page level custom scripts -->
 		<script src="<c:url value = "/js/demo/chart-area-demo.js"/>"></script>
 		<script src="<c:url value = "/js/demo/chart-pie-demo.js"/>"></script>
+
+		<script type="text/javascript">
+				today = new Date();
+				var dd = today.getDate();
+				var mm = today.getMonth() + 1; //As January is 0.
+				var yyyy = today.getFullYear();
+
+				if (dd < 10)
+					dd = '0' + dd;
+				if (mm < 10)
+					mm = '0' + mm;
+				document.getElementById("Date").value = (dd + '/'+ mm + '/' + yyyy);
+		</script>
 </body>
 
 </html>
