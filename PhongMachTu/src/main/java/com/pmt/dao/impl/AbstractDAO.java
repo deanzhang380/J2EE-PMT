@@ -181,7 +181,7 @@ public class AbstractDAO<T> implements IDao<T> {
 	}
 
 	@Override
-	public void delete(String sql, Object... parameters) {		
+	public void delete(String sql, Object... parameters) {
 		Connection connection = null;
 		PreparedStatement statement = null;
 		int row = 0;

@@ -1,7 +1,5 @@
 package com.pmt.dao;
 
-import java.util.List;
-
 import com.pmt.model.NguoiDung;
 
 public interface IUserDao extends IDao<NguoiDung>{
