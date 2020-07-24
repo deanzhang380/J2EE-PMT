@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -182,12 +182,19 @@
 							<input type="date" class="form-control bg-light border-0 small"
 								style="font-size: 2rem; margin-right: 10px"
 								placeholder="Search patient list by Date" aria-label="Search"
-								aria-describedby="basic-addon2" name="searchDate" value="${date}">
+								aria-describedby="basic-addon2" name="searchDate"
+								value="${date}">
+
 							<div class="input-group-append">
 								<button class="btn btn-primary" type="submit">
 									<i class="fas fa-search fa-sm"></i>
 								</button>
 							</div>
+							
+						</div>
+						<div style="display:flex" class="form-control bg-light border-0 small">
+						<input type="checkbox"  name="getAll" value="true" style="width:30px; height:20px ; margin-right:20px">
+							<label for="getAll"> Get All List Patient</label><br>
 						</div>
 					</form>
 
@@ -216,14 +223,17 @@
 												<td>${patient.getHoten()}</td>
 												<td>${patient.getGioiTinh()}</td>
 												<td>${patient.getDiaChi()}</td>
-												<td><a href="<c:url value='/Doctor/examines?id=${patient.getMaBenhNhan()}&date=${Date}&diagnosis=${diagnosis}'/>" method="POST"> Examines</a></td>
+												<td><a
+													href="<c:url value='/Doctor/examines?id=${patient.getMaBenhNhan()}&date=${Date}&diagnosis=${diagnosis}'/>"
+													method="POST"> Examines</a></td>
 											</tr>
 										</c:forEach>
 									</tbody>
-		
+
 								</table>
 							</div>
 						</div>
+						
 					</div>
 				</div>
 				<!-- /.container-fluid -->
@@ -276,33 +286,28 @@
 	</div>
 
 	<!-- Bootstrap core JavaScript-->
-	<script
-		src="<c:url value = "/vendor/bootstrap/js/bootstrap.bundle.min.js"/>"></script>
-	<script
-		src="<c:url value = "/vendor/bootstrap/js/bootstrap.bundle.min.js"/>"></script>
+	<script src="<c:url value = "/vendor/jquery/jquery.min.js"/>"></script>
+        <script src="<c:url value = "/vendor/bootstrap/js/bootstrap.bundle.min.js"/>"></script>
 
-	<!-- Core plugin JavaScript-->
-	<script
-		src="<c:url value = "/vendor/jquery-easing/jquery.easing.min.js"/>"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="<c:url value = "/vendor/jquery-easing/jquery.easing.min.js"/>"></script>
 
-	<!-- Custom scripts for all pages-->
-	<script src="<c:url value = "/js/sb-admin-2.min.js"/>"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="<c:url value = "/js/sb-admin-2.min.js"/>"></script>
 
-	<!-- Page level plugins -->
-	<script src="<c:url value = "/vendor/chart.js/Chart.min.js"/>"></script>
+        <!-- Page level plugins -->
+        <script src="<c:url value = "/vendor/chart.js/Chart.min.js"/>"></script>
 
-	<!-- Page level custom scripts -->
-	<script src="<c:url value = "/js/demo/chart-area-demo.js"/>"></script>
-	<script src="<c:url value = "/js/demo/chart-pie-demo.js"/>"></script>
+        <!-- Page level custom scripts -->
+        <script src="<c:url value = "/js/demo/chart-area-demo.js"/>"></script>
+        <script src="<c:url value = "/js/demo/chart-pie-demo.js"/>"></script>
 
-	<!-- Page level plugins -->
-	<script
-		src="<c:url value = "/vendor/datatables/jquery.dataTables.min.js"/>"></script>
-	<script
-		src="<c:url value = "/vendor/datatables/dataTables.bootstrap4.min.js"/>"></script>
+        <!-- Page level plugins -->
+        <script src="<c:url value = "/vendor/datatables/jquery.dataTables.min.js"/>"></script>
+        <script src="<c:url value = "/vendor/datatables/dataTables.bootstrap4.min.js"/>"></script>
 
-	<!-- Page level custom scripts -->
-	<script src="<c:url value = "/js/demo/datatables-demo.js"/>"></script>
+        <!-- Page level custom scripts -->
+        <script src="<c:url value = "/js/demo/datatables-demo.js"/>"></script>
 
 
 </body>

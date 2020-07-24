@@ -24,6 +24,7 @@ public class PatientListController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String date = req.getParameter("date");
+		String flag= req.getParameter("getall");
 		req.setAttribute("date", date);
 		if (date != null) {
 			String Date = FormatDate(date);
@@ -36,8 +37,12 @@ public class PatientListController extends HttpServlet {
 						list.add(benhNhan);
 					}
 				}
-				System.out.print("Danh sach Benh Nhan:" + list);
-				req.setAttribute("patientList", list);
+				if(flag.equalsIgnoreCase("true")){
+					req.setAttribute("patientList", ds);
+				}else {
+					req.setAttribute("patientList", list);
+				}
+				
 				req.setAttribute("diagnosis", services.getIdPatientListByDate(Date).getMaDanhSachKham());
 				req.setAttribute("Date", Date);
 			} catch (Exception e) {
@@ -51,8 +56,9 @@ public class PatientListController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String Date = req.getParameter("searchDate");
+		String flag= req.getParameter("getAll");
 		if (Date != null) {
-			resp.sendRedirect(req.getContextPath() + "/Doctor/patientList?date=" + Date);
+			resp.sendRedirect(req.getContextPath() + "/Doctor/patientList?date=" + Date+"&getall="+flag);
 		} else {
 			resp.sendRedirect(req.getContextPath() + "/Doctor/patientList?date=null");
 		}
