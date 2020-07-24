@@ -11,4 +11,5 @@ public interface IUserDao extends IDao<NguoiDung>{
 	void update(int id, String hoTen, String name, String pass, int maVaiTro);
 	void insert(String hoTen, String name, String pass, int maVaiTro);
 	void delete(int id);
+	NguoiDung findUserByID(String ID);
 }
