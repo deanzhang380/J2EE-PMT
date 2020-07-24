@@ -42,18 +42,31 @@ public class ExaminesController extends HttpServlet {
 		if (alert != null) {
 			String msg = null;
 			if (message.equalsIgnoreCase("success")) {
-				msg = "Dang ky thanh cong";
+				msg = "Function Success!";
 			} else {
-				msg = "Dang ky that bai";
+				msg = "Function Error!";
 			}
 			req.setAttribute("message", msg);
 			req.setAttribute("alert", alert);
 		}
 		try {
 			patientId = req.getParameter("id");
-			diagnosis = req.getParameter("diagnosis");
+//			diagnosis = req.getParameter("diagnosis");
 			date = req.getParameter("date");
 
+			patient = getBenhNhan(patientId);
+			if (services.CheckPatientInList(patient, date) == 1) {
+				req.setAttribute("functionButton", "Update Diagnosis");
+
+				PhieuKham pk = services.getPrescription(patient, date);
+				@SuppressWarnings("unused")
+				String dieases = String.valueOf(pk.getBenh().getMaBenh());
+				req.setAttribute("diseases", dieases);
+				req.setAttribute("medicalSign", pk.getTrieuChung());
+				req.setAttribute("note", pk.getGhiChu());
+			} else {
+				req.setAttribute("functionButton", "Create Diagnosis");
+			}
 			req.setAttribute("patientId", patientId);
 			req.setAttribute("diagnosis", diagnosis);
 			req.setAttribute("date", date);
@@ -71,37 +84,58 @@ public class ExaminesController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		boolean flagInsertPrescription = false;
 		try {
-			String dieaseOption = req.getParameter("diease");
-			String MedicalSign = req.getParameter("medicalSign");
-			String Note = req.getParameter("note");
-			patient = getBenhNhan(patientId);
-			diease = getBenh(dieaseOption);
-			examinesList = getDanhSachKham(date);
-			user = getNguoiDung("3");
+			String function = req.getParameter("functionExamines");
+			if (req.getParameter("functionExamines") != null) {
+				try {
+					String dieaseOption = req.getParameter("diease");
+					String MedicalSign = req.getParameter("medicalSign");
+					String Note = req.getParameter("note");
+					patient = getBenhNhan(patientId);
+					diease = getBenh(dieaseOption);
+					examinesList = getDanhSachKham(date);
+					user = getNguoiDung("3");
 
-			prescription = new PhieuKham();
-			prescription.setBenhNhan(patient);
-			prescription.setBenh(diease);
-			prescription.setDanhSach(examinesList);
-			prescription.setNguoiDung(user);
-			prescription.setTrieuChung(MedicalSign);
-			prescription.setGhiChu(Note);
-			prescription.setTongTien(services.getTienKham().getThamSo());
+					prescription = new PhieuKham();
+					prescription.setBenhNhan(patient);
+					prescription.setBenh(diease);
+					prescription.setDanhSach(examinesList);
+					prescription.setNguoiDung(user);
+					prescription.setTrieuChung(MedicalSign);
+					prescription.setGhiChu(Note);
+					prescription.setTongTien(services.getTienKham().getThamSo());
 
-			@SuppressWarnings("unused")
-			String newPrescription = services.insertDiagnosis(prescription);
+					if (function.equalsIgnoreCase("Update Diagnosis")) {
+						services.UpdateDiagnosis(prescription);
+					}
+					if (function.equalsIgnoreCase("Create Diagnosis")) {
+						@SuppressWarnings("unused")
+						String newPrescription = services.insertDiagnosis(prescription);
+					}
+				} catch (Exception e) {
+					flagInsertPrescription = true;
+					resp.sendRedirect(req.getContextPath() + "/Doctor/examines?id=" + patientId + "&date=" + date
+							+ "&message=error&alert=danger");
+				}
+				resp.sendRedirect(req.getContextPath() + "/Doctor/examines?id=" + patientId + "&date=" + date
+						+ "&message=success&alert=success");
+
+			}
+
+			if (req.getParameter("functionMakeBill") != null) {
+				resp.sendRedirect(req.getContextPath() + "/Doctor/MedicalBill?id=" + patientId + "&date=" + date);
+			}
+
+			if (req.getParameter("functionCancel") != null) {
+
+			}
+
 		} catch (Exception e) {
-			flagInsertPrescription = true;
-			System.out.print("Error" + e);
-
-		}
-		if (flagInsertPrescription == false) {
-			resp.sendRedirect(req.getContextPath() + "/Doctor/examines?id=" + patientId + "&date=" + date
-					+ "&message=success&alert=success");
-		} else {
 			resp.sendRedirect(req.getContextPath() + "/Doctor/examines?id=" + patientId + "&date=" + date
 					+ "&message=error&alert=danger");
+			System.out.print("Error" + e);
+			return;
 		}
+
 	}
 
 	private DanhSachKham getDanhSachKham(String Date) {

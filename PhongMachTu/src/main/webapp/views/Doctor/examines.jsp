@@ -236,11 +236,11 @@
 										<div class="value">
 											<div class="input-group">
 												<div class="rs-select2 js-select-simple select--no-search">
-													<select name="diease">
+													<select name="diease" id="diseaseSelect">
 														<option disabled="disabled" selected="selected">Medical
 															Diagnosis</option>
 														<c:forEach items="${disease}" var="item">
-															<option value="${item.getMaBenh()}">
+															<option value="${item.getMaBenh()} ${item.getMaBenh() eq diseases ? 'selected' : ''}">
 																${item.getTenBenh()}</option>
 														</c:forEach>
 													</select>
@@ -256,7 +256,7 @@
 											<div class="row row-space">
 												<div class="col-6">
 													<div class="input-group-desc">
-														<textarea name="medicalSign" rows="5" cols="60"></textarea>
+														<textarea name="medicalSign" id="medicalSign" rows="5" cols="60">${medicalSign}</textarea>
 													</div>
 												</div>
 											</div>
@@ -269,7 +269,7 @@
 											<div class="row row-space">
 												<div class="col-6">
 													<div class="input-group-desc">
-														<textarea name="note" rows="5" cols="60"></textarea>
+														<textarea name="note" id="note" rows="5" cols="60">${note}</textarea>
 													</div>
 												</div>
 
@@ -280,16 +280,15 @@
 									<div style="display: flex;">
 
 										<div style="margin-right: 50px;">
-											<button class="btn btn--radius-2 btn--blue" type="submit">Register
-												Diagnotics</button>
+											<button class="btn btn--radius-2 btn--blue" name="functionExamines" type="submit" value="${functionButton}">${functionButton}</button>
 										</div>
 
 										<div style="margin-right: 50px;">
-											<button class="btn btn--radius-2 btn--blue" type="submit">Make
+											<button class="btn btn--radius-2 btn--blue" name="functionMakeBill" type="submit">Make
 												Medical Bill</button>
 										</div>
 										<div style="margin-right: 50px;">
-											<button class="btn btn--radius-2 btn--blue" type="submit">Cancel</button>
+											<button class="btn btn--radius-2 btn--blue" name="functionCancel" type="submit">Cancel</button>
 										</div>
 									</div>
 
@@ -345,6 +344,8 @@
 				</div>
 			</div>
 		</div>
+		
+		
 
 		<!-- Bootstrap core JavaScript-->
 		<script src="<c:url value = "/vendor/jquery/jquery.min.js"/>>"></script>
