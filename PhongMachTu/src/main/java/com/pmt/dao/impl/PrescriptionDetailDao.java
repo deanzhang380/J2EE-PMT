@@ -21,9 +21,8 @@ public class PrescriptionDetailDao extends AbstractDAO<ChiTietPhieuKham> impleme
 	@Override
 	public List<ChiTietPhieuKham> getPrescriptionDetailByPrescriptionId(int id) {
 		StringBuilder sql = new StringBuilder("SELECT *");
-		sql.append(" FROM ChiTietPhieuKham ");
+		sql.append(" FROM ChiTietPhieuKham");
 		sql.append(" WHERE ChiTietPhieuKham.MaPhieuKham = ?");
-		
 		List<ChiTietPhieuKham> prescriptionDetail = query(sql.toString(), new PrescriptionDetailMapper(),id);
 		return prescriptionDetail;
 	}

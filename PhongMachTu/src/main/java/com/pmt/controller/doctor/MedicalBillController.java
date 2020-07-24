@@ -123,15 +123,18 @@ public class MedicalBillController extends HttpServlet {
 			medicineList = services.getAllListMedicine();
 			unitList = services.getAllListDonVi();
 			usageList = services.getAllListUsage();
-			prescriptionDetailList = services.getPrescriptionDetailByPrescriptionId(Integer.parseInt(patientId));
+			prescriptionDetailList = services.getPrescriptionDetailByPrescriptionId(prescription.getMaPhieuKham());
+			GetPrescriptionDetail(prescriptionDetailList);
 		} catch (Exception e) {
 			System.out.print("Error when get Resource" + e);
 		}
 	}
 	
 	private void GetPrescriptionDetail(List<ChiTietPhieuKham> prescriptionDetailList) {
-//		for (ChiTietPhieuKham chiTietPhieuKham : prescriptionDetailList) {
-//			chiTietPhieuKham.getThuoc().setTenThuoc(tenThuoc);
-//		}
+		for (ChiTietPhieuKham chiTietPhieuKham : prescriptionDetailList) {
+			chiTietPhieuKham.setThuoc(services.getMedicine(chiTietPhieuKham.getThuoc().getId()));
+			chiTietPhieuKham.setDonVi(services.getUnit(chiTietPhieuKham.getDonVi().getMaDonVi()));
+			chiTietPhieuKham.setCachDung(services.getUsage(chiTietPhieuKham.getCachDung().getMaCachDung()));
+		}
 	}
 }

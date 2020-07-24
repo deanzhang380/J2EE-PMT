@@ -31,4 +31,7 @@ public interface IExamineService {
 	
 	String insertPrescriptionDetail(int Mapk,int MaThuoc, int MaDonVi, int MaCachDung,int SoLuong);
 	List<ChiTietPhieuKham> getPrescriptionDetailByPrescriptionId(int id);
+	Thuoc getMedicine(int id);
+	DonVi getUnit(int id);
+	CachDung getUsage(int id);
 }

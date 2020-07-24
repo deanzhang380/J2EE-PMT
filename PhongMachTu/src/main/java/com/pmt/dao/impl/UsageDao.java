@@ -18,4 +18,11 @@ public class UsageDao extends AbstractDAO<CachDung> implements IUsageDao{
 		return UsageList;
 	}
 
+	@Override
+	public CachDung getUsageByID(int ID) {
+		StringBuilder sql = new StringBuilder("select * from CachDung Where MaCachDung=? ");
+		List<CachDung> UsageList = query(sql.toString(), new UsageMapper(),ID);
+		return UsageList.isEmpty()?null:UsageList.get(0);
+	}
+
 }

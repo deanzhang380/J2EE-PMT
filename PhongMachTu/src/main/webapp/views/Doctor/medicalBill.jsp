@@ -198,250 +198,255 @@
 						<h1 class="h3 mb-0 text-gray-800">Medical Bill</h1>
 					</div>
 					<form action="<c:url value='/Doctor/MedicalBill'/>" method="POST">
-					<div class="card card-5">
-						<div class="card-body">
-							<div method="POST">
-								<div class="form-row ">
-									<div class="name"></div>
-									<div class="value">
-										<div class="row row-space-2-items">
-											<div class="col-2">
-												<div class="input-group-desc">
-													<input type="text" class="form-control form-control-user"
-														name="diagnosis" value="${diagnosis}" disabled> <label
-														class="label--desc">Diagnosis ID</label>
-												</div>
-											</div>
-											<div class="col-2">
-												<div class="input-group-desc">
-													<!-- <input class="input--style-5" type="text" name="" value="40"
-                                                        disabled> -->
-													<input type="text" class="form-control form-control-user"
-														name="patientId" value="${patientId}" disabled> <label
-														class="label--desc">Patients ID</label>
-												</div>
-											</div>
-											<div class="col-2">
-												<div class="input-group-desc">
-													<!-- <input class="input--style-5" type="text" name="" value="40"
-                                                      disabled> -->
-													<input type="text" class="form-control form-control-user"
-														name="date" value="${date}" disabled> <label
-														class="label--desc">Date</label>
-												</div>
-											</div>
-										</div>
-
-									</div>
-								</div>
-								<div class="form-row m-b-20">
-									<div class="name">Full Name</div>
-									<div class="value">
-										<div class="row row-space">
-											<div class="col-4">
-												<div class="input-group-desc">
-													<input type="text" class="form-control form-control-user"
-														name="patientName" value="${patientName}" disabled>
-												</div>
-											</div>
-										</div>
-
-									</div>
-								</div>
-
-								<div class="form-row m-b-20">
-									<div class="name">Medicine Name</div>
-									<div class="value">
-										<div class="input-group">
-											<div class="rs-select2 js-select-simple select--no-search">
-												<select name="medicine" id="diseaseSelect"
-													style="width: 300px; height: 40px">
-													<option disabled="disabled" selected="selected">Medicine</option>
-													<c:forEach items="${medicine}" var="item">
-														<option value="${item.getId()}">
-															${item.getTenThuoc()}</option>
-													</c:forEach>
-												</select>
-												<div class="select-dropdown"></div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="form-row m-b-20" style="display: flex;">
-
-									<div style="display: flex; margin-right: 40px;">
-										<div class="name">Unit</div>
+						<div class="card card-5">
+							<div class="card-body">
+								<div method="POST">
+									<div class="form-row ">
+										<div class="name"></div>
 										<div class="value">
-											<div class="input-group">
-												<div class="rs-select2 js-select-simple select--no-search">
-													<select name="unit" style="width: 100px; height: 30px">
-														<option disabled="disabled" selected="selected">Unit</option>
-														<c:forEach items="${unit}" var="unitItem">
-															<option value="${unitItem.getMaDonVi()}">
-																${unitItem.getTenDonVi()}</option>
-														</c:forEach>
-													</select>
-													<div class="select-dropdown"></div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div style="display: flex; margin-right: 40px;">
-										<div class="name">Usage</div>
-										<div class="value">
-											<div class="input-group">
-												<div class="rs-select2 js-select-simple select--no-search">
-													<select name="usage" style="width: 100px; height: 30px">
-														<option disabled="disabled" selected="selected">Usage</option>
-														<c:forEach items="${usage}" var="UsageItem">
-															<option value="${UsageItem.getMaCachDung()}">
-																${UsageItem.getCachDung()}</option>
-														</c:forEach>
-													</select>
-													<div class="select-dropdown"></div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div style="display: flex; margin-right: 20px;">
-										<div class="name"
-											style="text-align: center; margin-top: 10px;">Number</div>
-										<div class="value">
-											<div class="row row-space">
-												<div class="col-12">
+											<div class="row row-space-2-items">
+												<div class="col-2">
 													<div class="input-group-desc">
 														<input type="text" class="form-control form-control-user"
-															name="number"id="exampleLastName" value="">
+															name="diagnosis" value="${diagnosis}" disabled> <label
+															class="label--desc">Diagnosis ID</label>
+													</div>
+												</div>
+												<div class="col-2">
+													<div class="input-group-desc">
+														<!-- <input class="input--style-5" type="text" name="" value="40"
+                                                        disabled> -->
+														<input type="text" class="form-control form-control-user"
+															name="patientId" value="${patientId}" disabled> <label
+															class="label--desc">Patients ID</label>
+													</div>
+												</div>
+												<div class="col-2">
+													<div class="input-group-desc">
+														<!-- <input class="input--style-5" type="text" name="" value="40"
+                                                      disabled> -->
+														<input type="text" class="form-control form-control-user"
+															name="date" value="${date}" disabled> <label
+															class="label--desc">Date</label>
 													</div>
 												</div>
 											</div>
 
 										</div>
 									</div>
-									<div style="margin-right: 50px;">
-										<button class="btn btn--radius-2 btn--blue" type="submit" name="functionAdd">Add
-										</button>
+									<div class="form-row m-b-20">
+										<div class="name">Full Name</div>
+										<div class="value">
+											<div class="row row-space">
+												<div class="col-4">
+													<div class="input-group-desc">
+														<input type="text" class="form-control form-control-user"
+															name="patientName" value="${patientName}" disabled>
+													</div>
+												</div>
+											</div>
+
+										</div>
 									</div>
 
+									<div class="form-row m-b-20">
+										<div class="name">Medicine Name</div>
+										<div class="value">
+											<div class="input-group">
+												<div class="rs-select2 js-select-simple select--no-search">
+													<select name="medicine" id="diseaseSelect"
+														style="width: 300px; height: 40px">
+														<option disabled="disabled" selected="selected">Medicine</option>
+														<c:forEach items="${medicine}" var="item">
+															<option value="${item.getId()}">
+																${item.getTenThuoc()}</option>
+														</c:forEach>
+													</select>
+													<div class="select-dropdown"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-row m-b-20" style="display: flex;">
+
+										<div style="display: flex; margin-right: 40px;">
+											<div class="name">Unit</div>
+											<div class="value">
+												<div class="input-group">
+													<div class="rs-select2 js-select-simple select--no-search">
+														<select name="unit" style="width: 100px; height: 30px">
+															<option disabled="disabled" selected="selected">Unit</option>
+															<c:forEach items="${unit}" var="unitItem">
+																<option value="${unitItem.getMaDonVi()}">
+																	${unitItem.getTenDonVi()}</option>
+															</c:forEach>
+														</select>
+														<div class="select-dropdown"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div style="display: flex; margin-right: 40px;">
+											<div class="name">Usage</div>
+											<div class="value">
+												<div class="input-group">
+													<div class="rs-select2 js-select-simple select--no-search">
+														<select name="usage" style="width: 100px; height: 30px">
+															<option disabled="disabled" selected="selected">Usage</option>
+															<c:forEach items="${usage}" var="UsageItem">
+																<option value="${UsageItem.getMaCachDung()}">
+																	${UsageItem.getCachDung()}</option>
+															</c:forEach>
+														</select>
+														<div class="select-dropdown"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div style="display: flex; margin-right: 20px;">
+											<div class="name"
+												style="text-align: center; margin-top: 10px;">Number</div>
+											<div class="value">
+												<div class="row row-space">
+													<div class="col-12">
+														<div class="input-group-desc">
+															<input type="text" class="form-control form-control-user"
+																name="number" id="exampleLastName" value="">
+														</div>
+													</div>
+												</div>
+
+											</div>
+										</div>
+										<div style="margin-right: 50px;">
+											<button class="btn btn--radius-2 btn--blue" type="submit"
+												name="functionAdd">Add</button>
+										</div>
+
+									</div>
+
+									<div style="display: flex;">
+										<div style="margin-right: 50px;">
+											<button class="btn btn--radius-2 btn--blue" type="submit"
+												name="functionMakeBill">Make Bill</button>
+										</div>
+										<div style="margin-right: 50px;">
+											<button class="btn btn--radius-2 btn--blue" type="submit"
+												name="functionPrint">Print Medical Bill</button>
+										</div>
+										<div style="margin-right: 50px;">
+											<button class="btn btn--radius-2 btn--blue" type="submit"
+												name="functionCancel">Cancel</button>
+										</div>
+									</div>
+
+
+									<div class="" style="margin-top: 20px;">
+										<div class="table-responsive">
+											<table class="table table-bordered" id="dataTable"
+												width="100%" cellspacing="0">
+												<thead>
+													<tr>
+														<th>Medicine Name</th>
+														<th>Unit</th>
+														<th>Number</th>
+														<th>Usage</th>											
+														<th>Remove</th>
+													</tr>
+												</thead>
+												<tbody>
+													<c:forEach items="${prescriptionDetailList}" var="item">
+														<tr>
+															<td>${item.getThuoc().getTenThuoc()}</td>
+															<td>${item.getDonVi().getTenDonVi()}</td>
+															<td>${item.getSoLuong()}</td>
+															<td>${item.getCachDung().getCachDung()}</td>
+															<td><a href="#"> Remove</a></td>
+														</tr>
+													</c:forEach>
+												</tbody>
+											</table>
+										</div>
+									</div>
 								</div>
-
-								<div style="display: flex;">
-									<div style="margin-right: 50px;">
-										<button class="btn btn--radius-2 btn--blue" type="submit" name="functionMakeBill">Make
-											Bill</button>
-									</div>
-									<div style="margin-right: 50px;">
-										<button class="btn btn--radius-2 btn--blue" type="submit" name="functionPrint">Print
-											Medical Bill</button>
-									</div>
-									<div style="margin-right: 50px;">
-										<button class="btn btn--radius-2 btn--blue" type="submit" name="functionCancel">Cancel</button>
-									</div>
-								</div>
-
-
-								<div class="" style="margin-top: 20px;">
-									<div class="table-responsive">
-										<table class="table table-bordered" id="dataTable"
-											width="100%" cellspacing="0">
-											<thead>
-												<tr>
-													<th>Medicine Name</th>
-													<th>Unit</th>
-													<th>Number</th>
-													<th>Used</th>
-													<th>Medicine ID</th>
-													<th>Remove</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</div>
-							</div>
-							</form>
-						</div>
-					</div>
 					</form>
 				</div>
-				<!-- End of Main Content -->
-
-				<!-- Footer -->
-				<footer class="sticky-footer bg-white">
-					<div class="container my-auto">
-						<div class="copyright text-center my-auto">
-							<span>Copyright &copy; Your Website 2020</span>
-						</div>
-					</div>
-				</footer>
-				<!-- End of Footer -->
-
 			</div>
-			<!-- End of Content Wrapper -->
-
+			</form>
 		</div>
-		<!-- End of Page Wrapper -->
+		<!-- End of Main Content -->
 
-		<!-- Scroll to Top Button-->
-		<a class="scroll-to-top rounded" href="#page-top"> <i
-			class="fas fa-angle-up"></i>
-		</a>
+		<!-- Footer -->
+		<footer class="sticky-footer bg-white">
+			<div class="container my-auto">
+				<div class="copyright text-center my-auto">
+					<span>Copyright &copy; Your Website 2020</span>
+				</div>
+			</div>
+		</footer>
+		<!-- End of Footer -->
 
-		<!-- Logout Modal-->
-		<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
-			aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Ready to
-							Leave?</h5>
-						<button class="close" type="button" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">×</span>
-						</button>
-					</div>
-					<div class="modal-body">Select "Logout" below if you are
-						ready to end your current session.</div>
-					<div class="modal-footer">
-						<button class="btn btn-secondary" type="button"
-							data-dismiss="modal">Cancel</button>
-						<a class="btn btn-primary" href="login.html">Logout</a>
-					</div>
+	</div>
+	<!-- End of Content Wrapper -->
+
+	</div>
+	<!-- End of Page Wrapper -->
+
+	<!-- Scroll to Top Button-->
+	<a class="scroll-to-top rounded" href="#page-top"> <i
+		class="fas fa-angle-up"></i>
+	</a>
+
+	<!-- Logout Modal-->
+	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+					<button class="close" type="button" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">Select "Logout" below if you are ready
+					to end your current session.</div>
+				<div class="modal-footer">
+					<button class="btn btn-secondary" type="button"
+						data-dismiss="modal">Cancel</button>
+					<a class="btn btn-primary" href="login.html">Logout</a>
 				</div>
 			</div>
 		</div>
-		<!-- Bootstrap core JavaScript-->
-		<script src="<c:url value = "/vendor/jquery/jquery.min.js"/>"></script>
-		<script
-			src="<c:url value = "/vendor/bootstrap/js/bootstrap.bundle.min.js"/>"></script>
+	</div>
+	<!-- Bootstrap core JavaScript-->
+	<script src="<c:url value = "/vendor/jquery/jquery.min.js"/>"></script>
+	<script
+		src="<c:url value = "/vendor/bootstrap/js/bootstrap.bundle.min.js"/>"></script>
 
-		<!-- Core plugin JavaScript-->
-		<script
-			src="<c:url value = "/vendor/jquery-easing/jquery.easing.min.js"/>"></script>
+	<!-- Core plugin JavaScript-->
+	<script
+		src="<c:url value = "/vendor/jquery-easing/jquery.easing.min.js"/>"></script>
 
-		<!-- Custom scripts for all pages-->
-		<script src="<c:url value = "/js/sb-admin-2.min.js"/>"></script>
+	<!-- Custom scripts for all pages-->
+	<script src="<c:url value = "/js/sb-admin-2.min.js"/>"></script>
 
-		<!-- Page level plugins -->
-		<script src="<c:url value = "/vendor/chart.js/Chart.min.js"/>"></script>
+	<!-- Page level plugins -->
+	<script src="<c:url value = "/vendor/chart.js/Chart.min.js"/>"></script>
 
-		<!-- Page level custom scripts -->
-		<script src="<c:url value = "/js/demo/chart-area-demo.js"/>"></script>
-		<script src="<c:url value = "/js/demo/chart-pie-demo.js"/>"></script>
+	<!-- Page level custom scripts -->
+	<script src="<c:url value = "/js/demo/chart-area-demo.js"/>"></script>
+	<script src="<c:url value = "/js/demo/chart-pie-demo.js"/>"></script>
 
-		<!-- Page level plugins -->
-		<script
-			src="<c:url value = "/vendor/datatables/jquery.dataTables.min.js"/>"></script>
-		<script
-			src="<c:url value = "/vendor/datatables/dataTables.bootstrap4.min.js"/>"></script>
+	<!-- Page level plugins -->
+	<script
+		src="<c:url value = "/vendor/datatables/jquery.dataTables.min.js"/>"></script>
+	<script
+		src="<c:url value = "/vendor/datatables/dataTables.bootstrap4.min.js"/>"></script>
 
-		<!-- Page level custom scripts -->
-		<script src="<c:url value = "/js/demo/datatables-demo.js"/>"></script>
+	<!-- Page level custom scripts -->
+	<script src="<c:url value = "/js/demo/datatables-demo.js"/>"></script>
 </body>
 
 </html>

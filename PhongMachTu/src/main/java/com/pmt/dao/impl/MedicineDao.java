@@ -18,4 +18,11 @@ public class MedicineDao extends AbstractDAO<Thuoc> implements IMedicineDao {
 		return MedicineList;
 	}
 
+	@Override
+	public Thuoc getMedicineByID(int ID) {
+		StringBuilder sql = new StringBuilder("select * from Thuoc Where MaThuoc=?");
+		List<Thuoc> MedicineList = query(sql.toString(), new MedicineMapper(),ID);
+		return MedicineList.isEmpty()?null:MedicineList.get(0);
+	}
+
 }

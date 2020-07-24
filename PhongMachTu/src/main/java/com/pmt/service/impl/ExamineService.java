@@ -123,5 +123,20 @@ public class ExamineService implements IExamineService{
 		// TODO Auto-generated method stub
 		return prescriptionDetailDao.getPrescriptionDetailByPrescriptionId(id);
 	}
+	@Override
+	public Thuoc getMedicine(int id) {
+		// TODO Auto-generated method stub
+		return medicineDao.getMedicineByID(id);
+	}
+	@Override
+	public DonVi getUnit(int id) {
+		// TODO Auto-generated method stub
+		return unitDao.getUnit(id);
+	}
+	@Override
+	public CachDung getUsage(int id) {
+		// TODO Auto-generated method stub
+		return usageDao.getUsageByID(id);
+	}
 
 }

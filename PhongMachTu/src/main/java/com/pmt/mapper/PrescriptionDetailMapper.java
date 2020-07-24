@@ -16,7 +16,7 @@ public class PrescriptionDetailMapper implements IMapper<ChiTietPhieuKham> {
 			ChiTietPhieuKham ctPhieuKham = new ChiTietPhieuKham();
 			
 			ctPhieuKham.setSoLuong(rs.getInt("SoLuong"));
-			ctPhieuKham.setThanhTien(rs.getInt("ThanhTien"));
+//			ctPhieuKham.setThanhTien(rs.getInt("ThanhTien"));
 			ctPhieuKham.setMaChiTietPhieuKham(rs.getInt("maChiTietPhieuKham"));
 			
 			try {
@@ -32,8 +32,8 @@ public class PrescriptionDetailMapper implements IMapper<ChiTietPhieuKham> {
 				Thuoc thuoc = new Thuoc();
 				
 				thuoc.setId(rs.getInt("MaThuoc"));
-				thuoc.setTenThuoc(rs.getString("TenThuoc"));
-				thuoc.setGiaThuoc(rs.getInt("GiaThuoc"));
+//				thuoc.setTenThuoc(rs.getString("TenThuoc"));
+//				thuoc.setGiaThuoc(rs.getInt("GiaThuoc"));
 				
 				ctPhieuKham.setThuoc(thuoc);
 				
@@ -45,7 +45,7 @@ public class PrescriptionDetailMapper implements IMapper<ChiTietPhieuKham> {
 				CachDung cachDung = new CachDung();
 				
 				cachDung.setMaCachDung(rs.getInt("MaCachDung"));
-				cachDung.setCachDung(rs.getString("CachDung"));
+//				cachDung.setCachDung(rs.getString("CachDung"));
 				
 				ctPhieuKham.setCachDung(cachDung);
 			} catch (Exception e) {
@@ -56,7 +56,7 @@ public class PrescriptionDetailMapper implements IMapper<ChiTietPhieuKham> {
 				DonVi donVi = new DonVi();
 				
 				donVi.setMaDonVi(rs.getInt("MaDonVi"));
-				donVi.setTenDonVi(rs.getString("TenDonVi"));
+//				donVi.setTenDonVi(rs.getString("TenDonVi"));
 				
 				ctPhieuKham.setDonVi(donVi);
 			} catch (Exception e) {

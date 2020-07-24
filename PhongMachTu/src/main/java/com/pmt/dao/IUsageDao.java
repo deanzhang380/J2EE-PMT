@@ -6,4 +6,5 @@ import com.pmt.model.CachDung;
 
 public interface IUsageDao extends IDao<CachDung>{
 	List<CachDung> getAllListUsage();
+	CachDung getUsageByID(int ID);
 }
