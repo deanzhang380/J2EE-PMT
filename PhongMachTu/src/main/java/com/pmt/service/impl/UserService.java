@@ -32,15 +32,14 @@ public class UserService  implements IUserService{
 	}
 
 	@Override
-	public void updateUser(int id, String hoten, String name, String pass, String gender) {
+	public void updateUser(int id, String hoten, String name, String pass,int gender) {
 		// TODO Auto-generated method stub
 		updateUser(id, hoten, name, pass, gender);
 	}
 
 	@Override
-	public void insertUser(String hoten, String name, String pass, String maVaiTro) {
-		insertUser(hoten, name, pass, maVaiTro);
-		
+	public void insertUser(String hoten, String name, String pass, int maVaiTro) {
+		userDao.insert(hoten, name, pass, maVaiTro);
 	}
 
 }

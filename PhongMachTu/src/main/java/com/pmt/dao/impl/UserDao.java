@@ -33,6 +33,8 @@ public class UserDao extends AbstractDAO<NguoiDung> implements IUserDao {
 		StringBuilder sql = new StringBuilder("UPDATE nguoidung");
 		sql.append(" VALUES(?,?,?,?)");
 		sql.append(" WHERE maNguoiDung = ?");
+		
+		update(sql.toString(), hoTen, name, pass, maVaiTro, id);
 	
 	}
 
@@ -50,12 +52,6 @@ public class UserDao extends AbstractDAO<NguoiDung> implements IUserDao {
 		return user.isEmpty() ? null : user.get(0);
 	}
 
-	
-			
-		update(sql.toString(), hoTen, name, pass, maVaiTro, id);
-	}
-
-
 	@Override
 	public void insert(String hoTen, String name, String pass, int maVaiTro) {
 		StringBuilder sql = new StringBuilder("INSERT INTO NguoiDung(HoTen, TenDangNhap, MatKhau, MaVaiTro)");
@@ -66,7 +62,7 @@ public class UserDao extends AbstractDAO<NguoiDung> implements IUserDao {
 
 	@Override
 	public void delete(int id) {
-		StringBuilder sql = new StringBuilder("DELETE FORM nguoidung");
+		StringBuilder sql = new StringBuilder("DELETE FROM nguoidung");
 		sql.append(" WHERE maNguoiDung = ?");
 		
 		delete(sql.toString(), id);

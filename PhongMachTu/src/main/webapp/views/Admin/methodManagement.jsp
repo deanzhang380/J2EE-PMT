@@ -222,12 +222,6 @@
 										<button style="margin-right: 20px"
 											class="btn btn--radius-2 btn--blue" action="create"
 											type="submit">Create</button>
-										<button style="margin-right: 20px"
-											class="btn btn--radius-2 btn--blue" action="update"
-											type="submit">Update</button>
-										<button style="margin-right: 20px"
-											class="btn btn--radius-2 btn--blue" action="submit"
-											type="submit">Delete</button>
 									</div>
 								</form>
 
@@ -248,9 +242,17 @@
 													</tr>
 												</thead>
 												<tbody>
-													<tr>
-														<td></td>
-													</tr>
+													<c:forEach items="${UsageList}" var="method">
+														<tr>
+															<td>${method.getMaCachDung()}</td>
+															<td>${method.getCachDung()}</td>
+															<td><a
+																href="<c:url value='/Admin/method/delete?id=${method.getMaCachDung()}'/>">
+																	Delete</a> <a
+																href="<c:url value='/Admin/methodManagement?id=${method.getMaCachDung()}'/>">
+																	Update</a></td>
+														</tr>
+													</c:forEach>
 
 												</tbody>
 											</table>

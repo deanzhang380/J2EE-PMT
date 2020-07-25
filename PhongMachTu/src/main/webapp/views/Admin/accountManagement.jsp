@@ -184,7 +184,8 @@
 						<h1 class="h3 mb-0 text-gray-800">Account Register</h1>
 
 					</div>
-					<form action="<c:url value='/reception/register'/>" class="patient" method="POST">
+					<form action="<c:url value='/Admin/account/create'/>"
+						class="patient" method="POST">
 						<div class="card card-5">
 							<div class="card-body">
 								<form method="POST">
@@ -232,11 +233,11 @@
 									</div>
 
 									<div class="form-row m-b-20">
-										<div class="name">Gender</div>
+										<div class="name">Role</div>
 										<div class="value">
 											<div class="input-group">
 												<div class="rs-select2 js-select-simple select--no-search">
-													<select name="patientGender">
+													<select name="role">
 														<option disabled="disabled" selected="selected">Roles
 														</option>
 														<option value=1>Admin</option>
@@ -251,14 +252,15 @@
 									</div>
 									<div style="display: flex;">
 										<button style="margin-right: 20px"
-											class="btn btn--radius-2 btn--blue" action="create"
-											type="submit">Create</button>
-										<button style="margin-right: 20px"
 											class="btn btn--radius-2 btn--blue" action="update"
 											type="submit">Update</button>
+
 										<button style="margin-right: 20px"
-											class="btn btn--radius-2 btn--blue" action="submit"
-											type="submit">Delete</button>
+											class="btn btn--radius-2 btn--blue" action="create"
+											type="submit">Create</button>
+
+
+
 									</div>
 								</form>
 
@@ -289,6 +291,9 @@
 																<td>${user.getUser()}</td>
 																<td>${user.getPass()}</td>
 																<td>${user.getTenVaiTro()}</td>
+																<td><a
+																	href="<c:url value='/Admin/account/delete?id=${user.getMaNguoiDung()}'/>">
+																		Delete</a></td>
 															</tr>
 														</c:forEach>
 													</tr>

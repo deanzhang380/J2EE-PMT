@@ -25,4 +25,32 @@ public class UsageDao extends AbstractDAO<CachDung> implements IUsageDao{
 		return UsageList.isEmpty()?null:UsageList.get(0);
 	}
 
+	@Override
+	public void insert(String usage) {
+		StringBuilder sql = new StringBuilder("INSERT INTO CachDung(CachDung)");
+		sql.append(" VALUES (?)");
+		
+		insert(sql.toString(), usage);
+		
+	}
+
+	@Override
+	public void delete(int id) {
+		StringBuilder sql = new StringBuilder("DELETE FROM CachDung");
+		sql.append(" WHERE MaCachDung = ?)");
+		
+		delete(sql.toString(), id);
+		
+	}
+
+	@Override
+	public void update(int id, String name) {
+		// TODO Auto-generated method stub
+		StringBuilder sql = new StringBuilder("UPDATE CachDung");
+		sql.append(" SET CachDung = ?");
+		sql.append(" WHERE MaCachDung = ?");
+		
+		update(sql.toString(), name, id);
+	}
+
 }
