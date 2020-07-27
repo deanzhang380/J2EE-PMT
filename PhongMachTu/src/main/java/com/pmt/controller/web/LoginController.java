@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.taglibs.standard.lang.jstl.AndOperator;
 
+import com.pmt.Util.SessionUtil;
 import com.pmt.model.NguoiDung;
 import com.pmt.service.IUserService;
 
@@ -38,14 +39,38 @@ public class LoginController extends HttpServlet {
 		
 		NguoiDung user = userService.checkUser(username, password);
 		
-		if (user != null && user.getVaiTro().getTenVaiTro().equalsIgnoreCase("admin") ) {
-			resp.sendRedirect(req.getContextPath()+"/admin-home");
-		} else if (user != null && user.getVaiTro().getId()==2 ) {
-			resp.sendRedirect(req.getContextPath()+"/reception");
-		} else if (user != null && user.getVaiTro().getId()==3 ) {
-			resp.sendRedirect(req.getContextPath()+"/Doctor");
-		} else if (user != null && user.getVaiTro().getId()==4 ) {
-			resp.sendRedirect(req.getContextPath()+"/Pharmacies");
+//		if (user != null && user.getVaiTro().getTenVaiTro().equalsIgnoreCase("admin") ) {
+//			resp.sendRedirect(req.getContextPath()+"/admin-home");
+//		} else if (user != null && user.getVaiTro().getId()==2 ) {
+//			resp.sendRedirect(req.getContextPath()+"/reception");
+//		} else if (user != null && user.getVaiTro().getId()==3 ) {
+//			resp.sendRedirect(req.getContextPath()+"/Doctor");
+//		} else if (user != null && user.getVaiTro().getId()==4 ) {
+//			resp.sendRedirect(req.getContextPath()+"/Pharmacies");
+//		} else {
+//			resp.sendRedirect(req.getContextPath()+"/login");
+//		}
+		
+		if (user != null) {
+			SessionUtil.getInstance().putValue(req, "USERLOGIN", user);
+			
+			switch (user.getVaiTro().getId()) {
+			case 1:
+				resp.sendRedirect(req.getContextPath()+"/admin-home");
+				break;
+			case 2:
+				resp.sendRedirect(req.getContextPath()+"/reception");
+				break;
+			case 3:
+				resp.sendRedirect(req.getContextPath()+"/Doctor");
+				break;
+			case 4:
+				resp.sendRedirect(req.getContextPath()+"/Pharmacies");
+				break;
+			default:
+				resp.sendRedirect(req.getContextPath()+"/login");
+				break;
+			}
 		} else {
 			resp.sendRedirect(req.getContextPath()+"/login");
 		}

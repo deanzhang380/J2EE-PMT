@@ -28,7 +28,7 @@ public class ExaminesListDao extends AbstractDAO<DanhSachKham> implements IExami
 
 	@Override
 	public String insertExaminesList(String Date) {
-		StringBuilder sql = new StringBuilder("INSERT INTO danhsachkham");
+		StringBuilder sql = new StringBuilder("INSERT INTO danhsachkham (NgayKham)");
 		sql.append(" VALUES (?)");
 		String newExaminse = insert(sql.toString(),Date);
 		return newExaminse;

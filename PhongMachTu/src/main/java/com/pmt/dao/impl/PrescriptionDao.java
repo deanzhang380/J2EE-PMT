@@ -37,9 +37,10 @@ public class PrescriptionDao extends AbstractDAO<PhieuKham> implements IPrescrip
 
 	@Override
 	public void UpdatePrescription(PhieuKham pk) {
-		StringBuilder sql = new StringBuilder("select count(phieukham.MaDanhSachKham)");
-		sql.append("SET phieukham.MaBenh=?, phieukham.TrieuChung=?,phieukham.GhiChu=?");
-		update(sql.toString(),pk.getBenh().getMaBenh(),pk.getTrieuChung(),pk.getGhiChu());
+		StringBuilder sql = new StringBuilder("Update PhieuKham");
+		sql.append(" SET phieukham.MaBenh=?, phieukham.TrieuChung=?,phieukham.GhiChu=?");
+		sql.append(" Where PhieuKham.MaPhieuKham=?");
+		update(sql.toString(),pk.getBenh().getMaBenh(),pk.getTrieuChung(),pk.getGhiChu(),pk.getMaPhieuKham());
 	}
 
 	@Override
@@ -52,6 +53,37 @@ public class PrescriptionDao extends AbstractDAO<PhieuKham> implements IPrescrip
 		//List<NguoiDung> user = query(sqlString, new UserMapper());
 		
 		return prescription.isEmpty() ? null : prescription.get(0);
+	}
+
+	@Override
+	public void UpdateMoney(int id,int money) {
+		StringBuilder sql = new StringBuilder("Update PhieuKham");
+		sql.append(" SET phieukham.TongTien=?");
+		sql.append(" Where PhieuKham.MaPhieuKham=?");
+		update(sql.toString(),money,id);
+		
+	}
+
+	@Override
+	public List<PhieuKham> getAllListPrescriptionByDate(String Date, int getAll) {
+		StringBuilder sql = new StringBuilder("SELECT PhieuKham.*");
+		sql.append(" FROM PhieuKham join DanhSachKham on PhieuKham.MaDanhSachKham=DanhSachKham.MaDanhSachKham");
+		if(getAll==1) {
+			sql.append(" WHERE DanhSachKham.NgayKham = ? ");
+		}else {
+		sql.append(" WHERE DanhSachKham.NgayKham = ? AND PhieuKham.ThanhToan = ?");
+		}
+		List<PhieuKham> prescription = query(sql.toString(), new PrescriptionMapper(), Date, getAll);
+		return prescription;
+	}
+
+	@Override
+	public void UpdateStatus(int id, int status) {
+		// TODO Auto-generated method stub
+		StringBuilder sql = new StringBuilder("Update PhieuKham");
+		sql.append(" SET phieukham.ThanhToan=?");
+		sql.append(" Where PhieuKham.MaPhieuKham=?");
+		update(sql.toString(),status,id);
 	}
 
 }

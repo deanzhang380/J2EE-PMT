@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 
@@ -71,8 +71,9 @@
 
 
 			<li class="nav-item"><a class="nav-link"
-				href="<c:url value='/Admin/accountManagement'/>" method="POST"> <i
-					class="fas fa-user-circle"></i> <span>Account Management</span></a></li>
+				href="<c:url value='/Admin/accountManagement'/>" method="POST">
+					<i class="fas fa-user-circle"></i> <span>Account Management</span>
+			</a></li>
 			<li class="nav-item"><a class="nav-link"
 				href="<c:url value='/Admin/drugManagement'/>" method="POST"> <i
 					class="fas fa-prescription-bottle-alt"></i> <span>Drug
@@ -181,10 +182,10 @@
 					<div
 						class="d-sm-flex align-items-center justify-content-between mb-4">
 						<h1 class="h3 mb-0 text-gray-800">Account Register</h1>
-						
+
 					</div>
-					<form action="<c:url value='/reception/register'/>" class="patient"
-						method="POST" >
+					<form action="<c:url value='/Admin/account/create'/>"
+						class="patient" method="POST">
 						<div class="card card-5">
 							<div class="card-body">
 								<form method="POST">
@@ -223,8 +224,8 @@
 											<div class="row row-space">
 												<div class="col-6">
 													<div class="input-group-desc">
-														<input type="password" class="form-control form-control-user"
-															name="password">
+														<input type="password"
+															class="form-control form-control-user" name="password">
 													</div>
 												</div>
 											</div>
@@ -232,31 +233,38 @@
 									</div>
 
 									<div class="form-row m-b-20">
-										<div class="name">Gender</div>
+										<div class="name">Role</div>
 										<div class="value">
 											<div class="input-group">
 												<div class="rs-select2 js-select-simple select--no-search">
-													<select name="patientGender">
+													<select name="role">
 														<option disabled="disabled" selected="selected">Roles
 														</option>
-														<option>Admin</option>
-														<option>Reception</option>
-														<option>Doctor</option>
-														<option>Drug (Cashier)</option>
+														<option value=1>Admin</option>
+														<option value=2>Reception</option>
+														<option value=3>Doctor</option>
+														<option value=4>Pharmacies</option>
 													</select>
 													<div class="select-dropdown"></div>
 												</div>
 											</div>
 										</div>
 									</div>
-									<div style="display:flex;">
-										<button style="margin-right:20px" class="btn btn--radius-2 btn--blue" action="create" type="submit">Create</button>									
-										<button style="margin-right:20px"  class="btn btn--radius-2 btn--blue" action="update" type="submit">Update</button>
-										<button style="margin-right:20px"  class="btn btn--radius-2 btn--blue" action="submit" type="submit">Delete</button>
+									<div style="display: flex;">
+										<button style="margin-right: 20px"
+											class="btn btn--radius-2 btn--blue" action="update"
+											type="submit">Update</button>
+
+										<button style="margin-right: 20px"
+											class="btn btn--radius-2 btn--blue" action="create"
+											type="submit">Create</button>
+
+
+
 									</div>
 								</form>
 
-								<div style="margin-top	:10px" class="card shadow mb-4">
+								<div style="margin-top: 10px" class="card shadow mb-4">
 									<div class="card-header py-3">
 										<h6 class="m-0 font-weight-bold text-primary">Patients
 											Table</h6>
@@ -276,7 +284,18 @@
 												</thead>
 												<tbody>
 													<tr>
-														<td></td>
+														<c:forEach items="${UserList}" var="user">
+															<tr>
+																<td>${user.getMaNguoiDung()}</td>
+																<td>${user.getHoten()}</td>
+																<td>${user.getUser()}</td>
+																<td>${user.getPass()}</td>
+																<td>${user.getTenVaiTro()}</td>
+																<td><a
+																	href="<c:url value='/Admin/account/delete?id=${user.getMaNguoiDung()}'/>">
+																		Delete</a></td>
+															</tr>
+														</c:forEach>
 													</tr>
 
 												</tbody>

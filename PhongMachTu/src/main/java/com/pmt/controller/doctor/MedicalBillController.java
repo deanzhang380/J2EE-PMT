@@ -1,15 +1,21 @@
 package com.pmt.controller.doctor;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.pmt.Util.DBConnection;
 import com.pmt.model.Benh;
 import com.pmt.model.BenhNhan;
 import com.pmt.model.CachDung;
@@ -19,6 +25,7 @@ import com.pmt.model.DonVi;
 import com.pmt.model.NguoiDung;
 import com.pmt.model.PhieuKham;
 import com.pmt.model.Thuoc;
+import com.pmt.reports.PrescriptionBill;
 import com.pmt.service.IExamineService;
 
 @WebServlet(urlPatterns = { "/Doctor/MedicalBill" })
@@ -50,6 +57,10 @@ public class MedicalBillController extends HttpServlet {
 		date = req.getParameter("date");
 		patient = getBenhNhan(patientId);
 		prescription = services.getPrescription(patient, date);
+		String remove=req.getParameter("remove");
+		if(remove!=null) {
+			services.deleteMedicine(String.valueOf(prescription.getMaPhieuKham()), remove);
+		}
 		GetResource();
 		req.setAttribute("patientId", patientId);
 		req.setAttribute("diagnosis", prescription.getMaPhieuKham());
@@ -67,7 +78,7 @@ public class MedicalBillController extends HttpServlet {
 		// TODO Auto-generated method stub
 		boolean flagInsertPrescription = false;
 		try {
-			String function = req.getParameter("functionExamines");
+//			String function = req.getParameter("functionExamines");
 //			if (req.getParameter("functionExamines") != null) {
 //				try {
 //					
@@ -82,22 +93,48 @@ public class MedicalBillController extends HttpServlet {
 //			}
 
 			if (req.getParameter("functionAdd") != null) {
-//				resp.sendRedirect(req.getContextPath() + "/Doctor/MedicalBill?id=" + patientId + "&date=" + date);
+				resp.sendRedirect(req.getContextPath() + "/Doctor/MedicalBill?id=" + patientId + "&date=" + date);
 				int idDrug = Integer.parseInt(req.getParameter("medicine"));
 				int idUnit = Integer.parseInt(req.getParameter("unit"));
 				int idUsage = Integer.parseInt(req.getParameter("usage"));
 				int number = Integer.parseInt(req.getParameter("number"));
 				services.insertPrescriptionDetail(prescription.getMaPhieuKham(), idDrug, idUnit, idUsage, number);
 			}
-
+			
+			if (req.getParameter("functionComplete") != null) {
+				if(prescriptionDetailList!=null) {
+					int ExaminesMoney=services.getTienKham().getThamSo();
+					int MedicineMoney=0;
+					for (ChiTietPhieuKham chiTietPhieuKham : prescriptionDetailList) {
+						MedicineMoney+=chiTietPhieuKham.getThuoc().getGiaThuoc()*chiTietPhieuKham.getSoLuong();
+					}
+					try {
+						services.UpdateMoney(prescription.getMaPhieuKham(), MedicineMoney+ExaminesMoney);
+						
+					}catch(Exception e) {
+						resp.sendRedirect(req.getContextPath() + "/Doctor/MedicalBill?id=" + patientId + "&date=" + date+"&updateMoney=error");
+					}
+					resp.sendRedirect(req.getContextPath() + "/Doctor/MedicalBill?id=" + patientId + "&date=" + date+"&updateMoney=success");
+				}
+				
+			}
+			if (req.getParameter("functionPrint") != null) {
+//				String path =String.valueOf(this.getClass().getProtectionDomain().getCodeSource().getLocation());
+////				String path=System.getProperty("user.dir");;
+//			     System.out.println("Working Directory = " + path);
+				Map<String, Object> map = new HashMap<>();
+	            map.put("PKid",String.valueOf(prescription.getMaPhieuKham()) );
+				String rp=new PrescriptionBill().genarateReport(String.valueOf(prescription.getMaPhieuKham()), map,DBConnection.getConnection());
+				resp.sendRedirect(req.getContextPath() + "/views/report/"+rp+".pdf");
+			}
 			if (req.getParameter("functionCancel") != null) {
-
+				resp.sendRedirect(req.getContextPath() + "/Doctor/patientList");
 			}
 
 		} catch (Exception e) {
 //			resp.sendRedirect(req.getContextPath() + "/Doctor/examines?id=" + patientId + "&date=" + date
 //					+ "&message=error&alert=danger");
-			System.out.print("Error" + e);
+//			System.out.print("Error" + e);
 			return;
 		}
 	}

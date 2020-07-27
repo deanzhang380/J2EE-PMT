@@ -20,4 +20,28 @@ public class ParameterDao extends AbstractDAO<ThamSo> implements IParameterDao{
 		return item.isEmpty()?null:item.get(0);
 	}
 
+	@Override
+	public List<ThamSo> getAll() {
+		String sql = "SELECT * FROM ThamSo";
+		return query(sql, new ParemetersMapper());
+	}
+
+	@Override
+	public void insert(String name, int value) {
+		StringBuilder sql = new StringBuilder("INSERT INTO ThamSo(TenThamSo, ThamSo)");
+		sql.append(" VALUES (?,?)");
+		
+		insert(sql.toString(), name, value);
+		
+	}
+
+	@Override
+	public void delete(int id) {
+		StringBuilder sql = new StringBuilder("DELETE FROM DonVi");
+		sql.append(" WHERE MaDonVi = ?)");
+		
+		delete(sql.toString(), id);
+		
+	}
+
 }

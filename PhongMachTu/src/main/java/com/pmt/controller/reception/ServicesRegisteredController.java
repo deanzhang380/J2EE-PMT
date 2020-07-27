@@ -48,7 +48,7 @@ public class ServicesRegisteredController extends HttpServlet {
 			Id_Date = String.valueOf(patientService.getIdDate(Date).getMaDanhSachKham());
 			System.out.print("Id_Date:"+ Id_Date);
 		} else if (checkDate(Date) == 0) {
-			patientService.insertExaminesList(Date);
+			Id_Date =patientService.insertExaminesList(Date);
 		} else {
 			flag_error=true;
 			System.out.print("Register Error");

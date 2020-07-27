@@ -107,7 +107,7 @@ public class AbstractDAO<T> implements IDao<T> {
 			statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
 			setParameters(statement, parameters);
-			int idint = statement.executeUpdate();
+			statement.executeUpdate();
 			resultSet = statement.getGeneratedKeys();
 			while (resultSet.next()) {
 				idString = resultSet.getString(1);

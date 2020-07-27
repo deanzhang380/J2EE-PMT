@@ -50,4 +50,7 @@ public class NguoiDung {
 	public void setVaiTro(VaiTro vaiTro) {
 		this.vaiTro = vaiTro;
 	}
+	public String getTenVaiTro() {
+		return this.getVaiTro().getTenVaiTro();
+	}
 }

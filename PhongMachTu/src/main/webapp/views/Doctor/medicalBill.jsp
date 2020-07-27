@@ -84,13 +84,13 @@
 				href="patientSearch.html"> <i class="fas fa-medkit"></i> <span>Patients
 						List</span></a></li>
 
-			<li class="nav-item"><a class="nav-link" href="examines.html">
+			<!-- <li class="nav-item"><a class="nav-link" href="examines.html">
 					<i class="fas fa-medkit"></i> <span>Examines</span>
 			</a></li>
 
 			<li class="nav-item"><a class="nav-link" href="medicalBill.html">
 					<i class="fas fa-medkit"></i> <span>Medical Bill</span>
-			</a></li>
+			</a></li> -->
 			<hr class="sidebar-divider">
 
 		</ul>
@@ -329,7 +329,7 @@
 									<div style="display: flex;">
 										<div style="margin-right: 50px;">
 											<button class="btn btn--radius-2 btn--blue" type="submit"
-												name="functionMakeBill">Make Bill</button>
+												name="functionComplete">Complete</button>
 										</div>
 										<div style="margin-right: 50px;">
 											<button class="btn btn--radius-2 btn--blue" type="submit"
@@ -362,7 +362,8 @@
 															<td>${item.getDonVi().getTenDonVi()}</td>
 															<td>${item.getSoLuong()}</td>
 															<td>${item.getCachDung().getCachDung()}</td>
-															<td><a href="#"> Remove</a></td>
+															<td><a href="<c:url value='/Doctor/MedicalBill?id=${patientId}&date=${date}&diagnosis=${diagnosis}&remove=${item.getThuoc().getId()}'/>"
+													method="POST"> Remove</a></td>
 														</tr>
 													</c:forEach>
 												</tbody>

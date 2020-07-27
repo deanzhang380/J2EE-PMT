@@ -62,7 +62,7 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link" href="diagnoticsList.html">
+        <a class="nav-link" href="<c:url value='/Drug/prescriptionList'/>">
           <i class="fas fa-medkit"></i>
           <span>Diagnostics List</span></a>
       </li>

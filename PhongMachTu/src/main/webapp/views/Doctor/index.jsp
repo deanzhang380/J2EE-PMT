@@ -73,7 +73,7 @@
 				href="<c:url value='/Doctor/patientList'/>" method="POST"> <i
 					class="fas fa-medkit"></i> <span>Patients List</span></a></li>
 
-			<li class="nav-item"><a class="nav-link"
+			<!-- <li class="nav-item"><a class="nav-link"
 				href="<c:url value='/Doctor/examines'/>" method="POST"> <i
 					class="fas fa-medkit"></i> <span>Examines</span>
 			</a></li>
@@ -81,7 +81,7 @@
 			<li class="nav-item"><a class="nav-link"
 				href="<c:url value='/Doctor/patientList'/>" method="POST"> <i
 					class="fas fa-medkit"></i> <span>Medical Bill</span>
-			</a></li>
+			</a></li> -->
 
 
 

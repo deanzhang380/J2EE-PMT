@@ -27,4 +27,10 @@ public class PrescriptionDetailDao extends AbstractDAO<ChiTietPhieuKham> impleme
 		return prescriptionDetail;
 	}
 
+	@Override
+	public void DeleteMedicine(String PrescriptionID, String MedicineID) {
+		StringBuilder sql = new StringBuilder("Delete from ChiTietPhieuKham where MaPhieuKham=? and MaThuoc=?");
+		delete(sql.toString(),PrescriptionID, MedicineID);
+	}
+
 }

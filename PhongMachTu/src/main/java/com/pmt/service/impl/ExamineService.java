@@ -138,5 +138,19 @@ public class ExamineService implements IExamineService{
 		// TODO Auto-generated method stub
 		return usageDao.getUsageByID(id);
 	}
+	@Override
+	public void deleteMedicine(String Pid, String Mid) {
+		prescriptionDetailDao.DeleteMedicine(Pid, Mid);
+	}
+	@Override
+	public void UpdateMoney(int id, int money) {
+		// TODO Auto-generated method stub
+		PrescriptionDao.UpdateMoney(id, money);
+	}
+	@Override
+	public void UpdateStatus(int id, int status) {
+		// TODO Auto-generated method stub
+		PrescriptionDao.UpdateStatus(id, status);
+	}
 
 }
