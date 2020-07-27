@@ -196,6 +196,7 @@
 												<div class="col-6">
 													<div class="input-group-desc">
 														<input type="text" class="form-control form-control-user"
+															value = "${USER.getHoten()}"
 															name="FullName">
 													</div>
 												</div>
@@ -210,6 +211,7 @@
 												<div class="col-6">
 													<div class="input-group-desc">
 														<input type="text" class="form-control form-control-user"
+															value = "${USER.getUser()}"
 															name="account">
 													</div>
 												</div>
@@ -225,7 +227,9 @@
 												<div class="col-6">
 													<div class="input-group-desc">
 														<input type="password"
-															class="form-control form-control-user" name="password">
+															class="form-control form-control-user" 
+															value = "${USER.getPass()}"
+															name="password">
 													</div>
 												</div>
 											</div>
@@ -238,7 +242,7 @@
 											<div class="input-group">
 												<div class="rs-select2 js-select-simple select--no-search">
 													<select name="role">
-														<option disabled="disabled" selected="selected">Roles
+														<option disabled="disabled" selected="selected" value="${USER.getTenVaiTro()}">Roles
 														</option>
 														<option value=1>Admin</option>
 														<option value=2>Reception</option>
@@ -293,7 +297,9 @@
 																<td>${user.getTenVaiTro()}</td>
 																<td><a
 																	href="<c:url value='/Admin/account/delete?id=${user.getMaNguoiDung()}'/>">
-																		Delete</a></td>
+																		Delete</a> <a
+																	href="<c:url value='/Admin/accountManagement?id=${user.getMaNguoiDung()}'/>">
+																		Update</a></td>
 															</tr>
 														</c:forEach>
 													</tr>

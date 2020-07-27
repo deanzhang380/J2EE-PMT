@@ -28,6 +28,12 @@ public class AccountManagementController extends HttpServlet {
 		
 		req.setAttribute("UserList", users);
 		
+		if (req.getParameter("id")!=null) {
+			String Id = req.getParameter("id");
+			NguoiDung user = userService.findById(Id);
+			req.setAttribute("USER", user);
+		}
+		
 		req.getRequestDispatcher("/views/Admin/accountManagement.jsp").forward(req, resp);
 	}
 	

@@ -42,4 +42,10 @@ public class UserService  implements IUserService{
 		userDao.insert(hoten, name, pass, maVaiTro);
 	}
 
+	@Override
+	public NguoiDung findById(String id) {
+		// TODO Auto-generated method stub
+		return userDao.findUserByID(id);
+	}
+
 }
