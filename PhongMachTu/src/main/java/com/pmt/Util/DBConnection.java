@@ -21,7 +21,7 @@ public class DBConnection {
 			
 			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 			
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/phongmachtu","root", "admin");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/phongmachtu","root", "truong1997");
 			
 			return con;
 			

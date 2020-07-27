@@ -29,7 +29,7 @@ public class AuthorizationFilter implements Filter{
 		HttpServletResponse resp = (HttpServletResponse) response;
 		String url = req.getRequestURI();
 		
-		if (url.startsWith("/PhongMachTu/admin")) {
+		if (url.startsWith("/PhongMachTu/Admin") ||url.startsWith("/PhongMachTu/admin") ) {
 			NguoiDung user = (NguoiDung) SessionUtil.getInstance().getValue(req, "USERLOGIN");
 			
 			if (user != null) {
