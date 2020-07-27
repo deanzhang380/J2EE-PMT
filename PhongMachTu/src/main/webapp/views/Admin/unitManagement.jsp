@@ -184,7 +184,7 @@
 						<h1 class="h3 mb-0 text-gray-800">Unit Register</h1>
 
 					</div>
-					<form action="<c:url value='/reception/register'/>" class="patient"
+					<form action="<c:url value='/Admin/unitManagement'/>" class="patient"
 						method="POST">
 						<div class="card card-5">
 							<div class="card-body">
@@ -222,12 +222,6 @@
 										<button style="margin-right: 20px"
 											class="btn btn--radius-2 btn--blue" action="create"
 											type="submit">Create</button>
-										<button style="margin-right: 20px"
-											class="btn btn--radius-2 btn--blue" action="update"
-											type="submit">Update</button>
-										<button style="margin-right: 20px"
-											class="btn btn--radius-2 btn--blue" action="submit"
-											type="submit">Delete</button>
 									</div>
 								</form>
 
@@ -242,16 +236,23 @@
 												width="100%" cellspacing="0">
 												<thead>
 													<tr>
-														<th>ID</th>
+														<th>Id</th>
 														<th>Unit Name</th>
-
 													</tr>
 												</thead>
 												<tbody>
-													<tr>
-														<td></td>
-													</tr>
 
+													<c:forEach items="${UnitList}" var="unit">
+														<tr>
+															<td>${unit.getMaDonVi()}</td>
+															<td>${unit.getTenDonVi()}</td>
+															<td><a
+																href="<c:url value='/Admin/unit/delete?id=${drug.getId()}'/>">
+																	Delete</a> <a
+																href="<c:url value='/Admin/unitManagement?id=${drug.getId()}'/>">
+																	Update</a></td>
+														</tr>
+													</c:forEach>
 												</tbody>
 											</table>
 										</div>

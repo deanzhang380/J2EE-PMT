@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 
@@ -184,11 +184,12 @@
 						<h1 class="h3 mb-0 text-gray-800">Drug Register</h1>
 
 					</div>
-					<form action="<c:url value='/reception/register'/>" class="patient"
+					<form action="<c:url value='/Admin/drugManagement'/>" class="patient"
 						method="POST">
 						<div class="card card-5">
 							<div class="card-body">
 								<form method="POST">
+
 									<div class="form-row m-b-20">
 										<div class="name">ID</div>
 										<div class="value">
@@ -196,6 +197,7 @@
 												<div class="col-6">
 													<div class="input-group-desc">
 														<input type="text" class="form-control form-control-user"
+															value = "${Drug.getId()}"
 															name="id">
 													</div>
 												</div>
@@ -210,6 +212,7 @@
 												<div class="col-6">
 													<div class="input-group-desc">
 														<input type="text" class="form-control form-control-user"
+															value = "${Drug.getTenThuoc()}"
 															name="drugName">
 													</div>
 												</div>
@@ -224,7 +227,7 @@
 											<div class="row row-space">
 												<div class="col-6">
 													<div class="input-group-desc">
-														<input type="number"
+														<input type="number" value = "${Drug.getGiaThuoc()}"
 															class="form-control form-control-user" name="price">
 													</div>
 												</div>
@@ -233,21 +236,25 @@
 									</div>
 
 									<div style="display: flex;">
-										<button style="margin-right: 20px"
-											class="btn btn--radius-2 btn--blue" action="create"
-											type="submit">Create</button>
-										<button style="margin-right: 20px"
-											class="btn btn--radius-2 btn--blue" action="update"
-											type="submit">Update</button>
-										<button style="margin-right: 20px"
-											class="btn btn--radius-2 btn--blue" action="submit"
-											type="submit">Delete</button>
+										<c:if test="${Drug.getGiaThuoc() > 0 }">
+											<button style="margin-right: 20px"
+												class="btn btn--radius-2 btn--blue" action="update"
+												type="submit">Update</button>
+
+										</c:if>
+										<c:if test="${!Drug.getGiaThuoc()}">
+											<button style="margin-right: 20px"
+												class="btn btn--radius-2 btn--blue" action="create"
+												type="submit">Create</button>
+										</c:if>
+												
+
 									</div>
 								</form>
 
 								<div style="margin-top: 10px" class="card shadow mb-4">
 									<div class="card-header py-3">
-										<h6 class="m-0 font-weight-bold text-primary">Patients
+										<h6 class="m-0 font-weight-bold text-primary">Medicine
 											Table</h6>
 									</div>
 									<div class="card-body">
@@ -263,7 +270,18 @@
 												</thead>
 												<tbody>
 													<tr>
-														<td></td>
+														<c:forEach items="${DrugList}" var="drug">
+															<tr>
+																<td>${drug.getId()}</td>
+																<td>${drug.getTenThuoc()}</td>
+																<td>${drug.getGiaThuoc()}</td>
+																<td><a
+																	href="<c:url value='/Admin/drug/delete?id=${drug.getId()}'/>">
+																		Delete</a> <a
+																	href="<c:url value='/Admin/drugManagement?id=${drug.getId()}'/>">
+																		Update</a></td>
+															</tr>
+														</c:forEach>
 													</tr>
 
 												</tbody>
