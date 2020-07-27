@@ -28,7 +28,7 @@ public class ExaminesController extends HttpServlet {
 	NguoiDung user = null;
 	Benh diease = null;
 
-	PhieuKham prescription = null;
+	PhieuKham pk = null;
 
 	private static final long serialVersionUID = 3113197668287393127L;
 	@Inject
@@ -38,7 +38,7 @@ public class ExaminesController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String alert = req.getParameter("alert");
 		String message = req.getParameter("message");
-
+		
 		if (alert != null) {
 			String msg = null;
 			if (message.equalsIgnoreCase("success")) {
@@ -49,16 +49,16 @@ public class ExaminesController extends HttpServlet {
 			req.setAttribute("message", msg);
 			req.setAttribute("alert", alert);
 		}
+		
 		try {
 			patientId = req.getParameter("id");
 //			diagnosis = req.getParameter("diagnosis");
 			date = req.getParameter("date");
-
 			patient = getBenhNhan(patientId);
+			
 			if (services.CheckPatientInList(patient, date) == 1) {
 				req.setAttribute("functionButton", "Update Diagnosis");
-
-				PhieuKham pk = services.getPrescription(patient, date);
+				pk = services.getPrescription(patient, date);
 				@SuppressWarnings("unused")
 				String dieases = String.valueOf(pk.getBenh().getMaBenh());
 				req.setAttribute("diseases", dieases);
@@ -95,7 +95,8 @@ public class ExaminesController extends HttpServlet {
 					examinesList = getDanhSachKham(date);
 					user = getNguoiDung("3");
 
-					prescription = new PhieuKham();
+					PhieuKham prescription = new PhieuKham();
+					prescription.setMaPhieuKham(pk!=null?pk.getMaPhieuKham():-1);
 					prescription.setBenhNhan(patient);
 					prescription.setBenh(diease);
 					prescription.setDanhSach(examinesList);
@@ -118,7 +119,6 @@ public class ExaminesController extends HttpServlet {
 				}
 				resp.sendRedirect(req.getContextPath() + "/Doctor/examines?id=" + patientId + "&date=" + date
 						+ "&message=success&alert=success");
-
 			}
 
 			if (req.getParameter("functionMakeBill") != null) {

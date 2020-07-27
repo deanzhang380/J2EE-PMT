@@ -197,144 +197,17 @@
 						class="d-sm-flex align-items-center justify-content-between mb-4">
 						<h1 class="h3 mb-0 text-gray-800">Medical Bill</h1>
 					</div>
-					<form action="<c:url value='/Doctor/MedicalBill'/>" method="POST">
+					<form action="<c:url value='/Drug/MedicineBill'/>" method="POST">
 						<div class="card card-5">
 							<div class="card-body">
 								<div method="POST">
-									<div class="form-row ">
-										<div class="name"></div>
-										<div class="value">
-											<div class="row row-space-2-items">
-												<div class="col-2">
-													<div class="input-group-desc">
-														<input type="text" class="form-control form-control-user"
-															name="diagnosis" value="${diagnosis}" disabled> <label
-															class="label--desc">Diagnosis ID</label>
-													</div>
-												</div>
-												<div class="col-2">
-													<div class="input-group-desc">
-														<!-- <input class="input--style-5" type="text" name="" value="40"
-                                                        disabled> -->
-														<input type="text" class="form-control form-control-user"
-															name="patientId" value="${patientId}" disabled> <label
-															class="label--desc">Patients ID</label>
-													</div>
-												</div>
-												<div class="col-2">
-													<div class="input-group-desc">
-														<!-- <input class="input--style-5" type="text" name="" value="40"
-                                                      disabled> -->
-														<input type="text" class="form-control form-control-user"
-															name="date" value="${date}" disabled> <label
-															class="label--desc">Date</label>
-													</div>
-												</div>
-											</div>
-
-										</div>
-									</div>
-									<div class="form-row m-b-20">
-										<div class="name">Full Name</div>
-										<div class="value">
-											<div class="row row-space">
-												<div class="col-4">
-													<div class="input-group-desc">
-														<input type="text" class="form-control form-control-user"
-															name="patientName" value="${patientName}" disabled>
-													</div>
-												</div>
-											</div>
-
-										</div>
-									</div>
-
-									<div class="form-row m-b-20">
-										<div class="name">Medicine Name</div>
-										<div class="value">
-											<div class="input-group">
-												<div class="rs-select2 js-select-simple select--no-search">
-													<select name="medicine" id="diseaseSelect"
-														style="width: 300px; height: 40px">
-														<option disabled="disabled" selected="selected">Medicine</option>
-														<c:forEach items="${medicine}" var="item">
-															<option value="${item.getId()}">
-																${item.getTenThuoc()}</option>
-														</c:forEach>
-													</select>
-													<div class="select-dropdown"></div>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="form-row m-b-20" style="display: flex;">
-
-										<div style="display: flex; margin-right: 40px;">
-											<div class="name">Unit</div>
-											<div class="value">
-												<div class="input-group">
-													<div class="rs-select2 js-select-simple select--no-search">
-														<select name="unit" style="width: 100px; height: 30px">
-															<option disabled="disabled" selected="selected">Unit</option>
-															<c:forEach items="${unit}" var="unitItem">
-																<option value="${unitItem.getMaDonVi()}">
-																	${unitItem.getTenDonVi()}</option>
-															</c:forEach>
-														</select>
-														<div class="select-dropdown"></div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div style="display: flex; margin-right: 40px;">
-											<div class="name">Usage</div>
-											<div class="value">
-												<div class="input-group">
-													<div class="rs-select2 js-select-simple select--no-search">
-														<select name="usage" style="width: 100px; height: 30px">
-															<option disabled="disabled" selected="selected">Usage</option>
-															<c:forEach items="${usage}" var="UsageItem">
-																<option value="${UsageItem.getMaCachDung()}">
-																	${UsageItem.getCachDung()}</option>
-															</c:forEach>
-														</select>
-														<div class="select-dropdown"></div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div style="display: flex; margin-right: 20px;">
-											<div class="name"
-												style="text-align: center; margin-top: 10px;">Number</div>
-											<div class="value">
-												<div class="row row-space">
-													<div class="col-12">
-														<div class="input-group-desc">
-															<input type="text" class="form-control form-control-user"
-																name="number" id="exampleLastName" value="">
-														</div>
-													</div>
-												</div>
-
-											</div>
-										</div>
-										<div style="margin-right: 50px;">
-											<button class="btn btn--radius-2 btn--blue" type="submit"
-												name="functionAdd">Add</button>
-										</div>
-
-									</div>
 
 									<div style="display: flex;">
 										<div style="margin-right: 50px;">
 											<button class="btn btn--radius-2 btn--blue" type="submit"
 												name="functionComplete">Complete</button>
 										</div>
-										<div style="margin-right: 50px;">
-											<button class="btn btn--radius-2 btn--blue" type="submit"
-												name="functionPrint">Print Medical Bill</button>
-										</div>
+
 										<div style="margin-right: 50px;">
 											<button class="btn btn--radius-2 btn--blue" type="submit"
 												name="functionCancel">Cancel</button>
@@ -351,8 +224,7 @@
 														<th>Medicine Name</th>
 														<th>Unit</th>
 														<th>Number</th>
-														<th>Usage</th>											
-														<th>Remove</th>
+														<th>Usage</th>
 													</tr>
 												</thead>
 												<tbody>
@@ -362,8 +234,6 @@
 															<td>${item.getDonVi().getTenDonVi()}</td>
 															<td>${item.getSoLuong()}</td>
 															<td>${item.getCachDung().getCachDung()}</td>
-															<td><a href="<c:url value='/Doctor/MedicalBill?id=${patientId}&date=${date}&diagnosis=${diagnosis}&remove=${item.getThuoc().getId()}'/>"
-													method="POST"> Remove</a></td>
 														</tr>
 													</c:forEach>
 												</tbody>

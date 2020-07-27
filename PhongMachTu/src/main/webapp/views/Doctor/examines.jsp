@@ -80,12 +80,12 @@
 				href="patientSearch.html"> <i class="fas fa-medkit"></i> <span>Patients
 						List</span></a></li>
 
-			<li class="nav-item"><a class="nav-link" href="examines.html">
+			<!-- <li class="nav-item"><a class="nav-link" href="examines.html">
 					<i class="fas fa-medkit"></i> <span>Examines</span>
 			</a></li>
 
 			<li class="nav-item"><a class="nav-link" href="medicalBill.html">
-					<i class="fas fa-medkit"></i> <span>Medical Bill</span>
+					<i class="fas fa-medkit"></i> <span>Medical Bill</span> -->
 			</a></li>
 			<!-- Divider -->
 			<hr class="sidebar-divider">

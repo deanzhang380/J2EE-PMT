@@ -34,4 +34,8 @@ public interface IExamineService {
 	Thuoc getMedicine(int id);
 	DonVi getUnit(int id);
 	CachDung getUsage(int id);
+	
+	void deleteMedicine(String Pid,String Mid);
+	void UpdateMoney(int id,int money);
+	void UpdateStatus(int id,int status);
 }

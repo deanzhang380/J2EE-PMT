@@ -14,7 +14,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Home</title>
+<title>Patient List</title>
 
 <!-- Custom fonts for this template-->
 <link href="<c:url value = "/vendor/fontawesome-free/css/all.min.css"/>"
@@ -70,7 +70,7 @@
 
 			<!-- Nav Item - Pages Collapse Menu -->
 			<li class="nav-item"><a class="nav-link"
-				href="patientSearch.html"> <i class="fas fa-medkit"></i> <span>Patients
+				href=""> <i class="fas fa-medkit"></i> <span>Patients
 						List</span></a></li>
 
 			<!-- <li class="nav-item"><a class="nav-link" href="examines.html">
@@ -176,7 +176,7 @@
 						class="d-sm-flex align-items-center justify-content-between mb-4">
 						<h1 class="h3 mb-0 text-gray-800">Patients List</h1>
 					</div>
-					<form action="<c:url value='/Doctor/patientList'/>" method="POST"
+					<form action="<c:url value='/Drug/prescriptionList'/>" method="POST"
 						class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
 						<div class="input-group" style="margin-bottom: 10px">
 							<input type="date" class="form-control bg-light border-0 small"
@@ -194,7 +194,7 @@
 						</div>
 						<div style="display:flex" class="form-control bg-light border-0 small">
 						<input type="checkbox"  name="getAll" value="true" style="width:30px; height:20px ; margin-right:20px">
-							<label for="getAll"> Get All List Patient</label><br>
+							<label for="getAll"> Get All Prescription</label><br>
 						</div>
 					</form>
 
@@ -208,24 +208,26 @@
 									cellspacing="0">
 									<thead>
 										<tr>
-											<th>Patients ID</th>
-											<th>Full Name</th>
-											<th>Gender</th>
-											<th>Address</th>
-											<th>Examines</th>
+											<th>Diagnosis ID</th>
+											<th>Patient Name</th>
+											<th>Medical Sign</th>
+											<th>Total Money</th>
+											<th>Medicine Bill</th>
+											<th>Status</th>
 										</tr>
 									</thead>
 
 									<tbody>
-										<c:forEach items="${patientList}" var="patient">
+										<c:forEach items="${prescriptionList}" var="item">
 											<tr>
-												<td name="MaBenhNhan">${patient.getMaBenhNhan()}</td>
-												<td>${patient.getHoten()}</td>
-												<td>${patient.getGioiTinh()}</td>
-												<td>${patient.getDiaChi()}</td>
+												<td >${item.getMaPhieuKham()}</td>
+												<td>${item.getBenhNhan().getHoten()}</td>
+												<td>${item.getTrieuChung()}</td>
+												<td>${item. getTongTien()}</td>
 												<td><a
-													href="<c:url value='/Doctor/examines?id=${patient.getMaBenhNhan()}&date=${Date}&diagnosis=${diagnosis}'/>"
-													method="POST"> Examines</a></td>
+													href="<c:url value='/Drug/MedicineBill?Pid=${item.getMaPhieuKham()}'/>"
+													method="POST"> Medicine Bill</a></td>
+												<td>${item.isThanhToan()?"Paid":"Not Paid"}</td>
 											</tr>
 										</c:forEach>
 									</tbody>

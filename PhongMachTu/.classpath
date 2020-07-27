@@ -30,5 +30,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/Rai/Downloads/mysql-connector-java-8.0.20.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Rai/Downloads/jasperreports-6.8.0.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

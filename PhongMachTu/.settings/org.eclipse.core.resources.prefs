@@ -1,2 +1,5 @@
 eclipse.preferences.version=1
+encoding//src/main/java/com/pmt/controller/doctor/ExaminesController.java=UTF-8
+encoding//src/main/java/com/pmt/controller/doctor/MedicalBillController.java=UTF-8
+encoding//src/main/java/com/pmt/controller/doctor/PatientListController.java=UTF-8
 encoding//src/main/webapp/views/Reception/servicesRegister.jsp=UTF-8
